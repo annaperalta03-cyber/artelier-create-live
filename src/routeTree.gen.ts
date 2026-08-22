@@ -10,33 +10,93 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KitsRouteImport } from './routes/kits'
+import { Route as MaterialesRouteImport } from './routes/materiales'
+import { Route as TalleresRouteImport } from './routes/talleres'
+import { Route as TalleresIndexRouteImport } from './routes/talleres.index'
+import { Route as TalleresSlugRouteImport } from './routes/talleres.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KitsRoute = KitsRouteImport.update({
+  id: '/kits',
+  path: '/kits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialesRoute = MaterialesRouteImport.update({
+  id: '/materiales',
+  path: '/materiales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalleresRoute = TalleresRouteImport.update({
+  id: '/talleres',
+  path: '/talleres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalleresIndexRoute = TalleresIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TalleresRoute,
+} as any)
+const TalleresSlugRoute = TalleresSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TalleresRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kits': typeof KitsRoute
+  '/materiales': typeof MaterialesRoute
+  '/talleres': typeof TalleresRouteWithChildren
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/talleres/': typeof TalleresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kits': typeof KitsRoute
+  '/materiales': typeof MaterialesRoute
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/talleres': typeof TalleresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kits': typeof KitsRoute
+  '/materiales': typeof MaterialesRoute
+  '/talleres': typeof TalleresRouteWithChildren
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/talleres/': typeof TalleresIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/kits'
+    | '/materiales'
+    | '/talleres'
+    | '/talleres/$slug'
+    | '/talleres/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/kits' | '/materiales' | '/talleres/$slug' | '/talleres'
+  id:
+    | '__root__'
+    | '/'
+    | '/kits'
+    | '/materiales'
+    | '/talleres'
+    | '/talleres/$slug'
+    | '/talleres/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KitsRoute: typeof KitsRoute
+  MaterialesRoute: typeof MaterialesRoute
+  TalleresRoute: typeof TalleresRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +108,63 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kits': {
+      id: '/kits'
+      path: '/kits'
+      fullPath: '/kits'
+      preLoaderRoute: typeof KitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materiales': {
+      id: '/materiales'
+      path: '/materiales'
+      fullPath: '/materiales'
+      preLoaderRoute: typeof MaterialesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/talleres': {
+      id: '/talleres'
+      path: '/talleres'
+      fullPath: '/talleres'
+      preLoaderRoute: typeof TalleresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/talleres/': {
+      id: '/talleres/'
+      path: '/'
+      fullPath: '/talleres/'
+      preLoaderRoute: typeof TalleresIndexRouteImport
+      parentRoute: typeof TalleresRoute
+    }
+    '/talleres/$slug': {
+      id: '/talleres/$slug'
+      path: '/$slug'
+      fullPath: '/talleres/$slug'
+      preLoaderRoute: typeof TalleresSlugRouteImport
+      parentRoute: typeof TalleresRoute
+    }
   }
 }
 
+interface TalleresRouteChildren {
+  TalleresSlugRoute: typeof TalleresSlugRoute
+  TalleresIndexRoute: typeof TalleresIndexRoute
+}
+
+const TalleresRouteChildren: TalleresRouteChildren = {
+  TalleresSlugRoute: TalleresSlugRoute,
+  TalleresIndexRoute: TalleresIndexRoute,
+}
+
+const TalleresRouteWithChildren = TalleresRoute._addFileChildren(
+  TalleresRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KitsRoute: KitsRoute,
+  MaterialesRoute: MaterialesRoute,
+  TalleresRoute: TalleresRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
