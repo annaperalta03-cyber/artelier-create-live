@@ -10,33 +10,189 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CarritoRouteImport } from './routes/carrito'
+import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as EventosRouteImport } from './routes/eventos'
+import { Route as KitsRouteImport } from './routes/kits'
+import { Route as MaterialesRouteImport } from './routes/materiales'
+import { Route as NosotrosRouteImport } from './routes/nosotros'
+import { Route as OlfactoryRouteImport } from './routes/olfactory'
+import { Route as TalleresRouteImport } from './routes/talleres'
+import { Route as PedidoNumeroRouteImport } from './routes/pedido.$numero'
+import { Route as TalleresIndexRouteImport } from './routes/talleres.index'
+import { Route as TalleresSlugRouteImport } from './routes/talleres.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CarritoRoute = CarritoRouteImport.update({
+  id: '/carrito',
+  path: '/carrito',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventosRoute = EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KitsRoute = KitsRouteImport.update({
+  id: '/kits',
+  path: '/kits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialesRoute = MaterialesRouteImport.update({
+  id: '/materiales',
+  path: '/materiales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NosotrosRoute = NosotrosRouteImport.update({
+  id: '/nosotros',
+  path: '/nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OlfactoryRoute = OlfactoryRouteImport.update({
+  id: '/olfactory',
+  path: '/olfactory',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalleresRoute = TalleresRouteImport.update({
+  id: '/talleres',
+  path: '/talleres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PedidoNumeroRoute = PedidoNumeroRouteImport.update({
+  id: '/pedido/$numero',
+  path: '/pedido/$numero',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalleresIndexRoute = TalleresIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TalleresRoute,
+} as any)
+const TalleresSlugRoute = TalleresSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => TalleresRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carrito': typeof CarritoRoute
+  '/checkout': typeof CheckoutRoute
+  '/contacto': typeof ContactoRoute
+  '/eventos': typeof EventosRoute
+  '/kits': typeof KitsRoute
+  '/materiales': typeof MaterialesRoute
+  '/nosotros': typeof NosotrosRoute
+  '/olfactory': typeof OlfactoryRoute
+  '/talleres': typeof TalleresRouteWithChildren
+  '/pedido/$numero': typeof PedidoNumeroRoute
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/talleres/': typeof TalleresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carrito': typeof CarritoRoute
+  '/checkout': typeof CheckoutRoute
+  '/contacto': typeof ContactoRoute
+  '/eventos': typeof EventosRoute
+  '/kits': typeof KitsRoute
+  '/materiales': typeof MaterialesRoute
+  '/nosotros': typeof NosotrosRoute
+  '/olfactory': typeof OlfactoryRoute
+  '/pedido/$numero': typeof PedidoNumeroRoute
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/talleres': typeof TalleresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carrito': typeof CarritoRoute
+  '/checkout': typeof CheckoutRoute
+  '/contacto': typeof ContactoRoute
+  '/eventos': typeof EventosRoute
+  '/kits': typeof KitsRoute
+  '/materiales': typeof MaterialesRoute
+  '/nosotros': typeof NosotrosRoute
+  '/olfactory': typeof OlfactoryRoute
+  '/talleres': typeof TalleresRouteWithChildren
+  '/pedido/$numero': typeof PedidoNumeroRoute
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/talleres/': typeof TalleresIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/carrito'
+    | '/checkout'
+    | '/contacto'
+    | '/eventos'
+    | '/kits'
+    | '/materiales'
+    | '/nosotros'
+    | '/olfactory'
+    | '/talleres'
+    | '/pedido/$numero'
+    | '/talleres/$slug'
+    | '/talleres/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/carrito'
+    | '/checkout'
+    | '/contacto'
+    | '/eventos'
+    | '/kits'
+    | '/materiales'
+    | '/nosotros'
+    | '/olfactory'
+    | '/pedido/$numero'
+    | '/talleres/$slug'
+    | '/talleres'
+  id:
+    | '__root__'
+    | '/'
+    | '/carrito'
+    | '/checkout'
+    | '/contacto'
+    | '/eventos'
+    | '/kits'
+    | '/materiales'
+    | '/nosotros'
+    | '/olfactory'
+    | '/talleres'
+    | '/pedido/$numero'
+    | '/talleres/$slug'
+    | '/talleres/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CarritoRoute: typeof CarritoRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ContactoRoute: typeof ContactoRoute
+  EventosRoute: typeof EventosRoute
+  KitsRoute: typeof KitsRoute
+  MaterialesRoute: typeof MaterialesRoute
+  NosotrosRoute: typeof NosotrosRoute
+  OlfactoryRoute: typeof OlfactoryRoute
+  TalleresRoute: typeof TalleresRouteWithChildren
+  PedidoNumeroRoute: typeof PedidoNumeroRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +204,119 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carrito': {
+      id: '/carrito'
+      path: '/carrito'
+      fullPath: '/carrito'
+      preLoaderRoute: typeof CarritoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eventos': {
+      id: '/eventos'
+      path: '/eventos'
+      fullPath: '/eventos'
+      preLoaderRoute: typeof EventosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kits': {
+      id: '/kits'
+      path: '/kits'
+      fullPath: '/kits'
+      preLoaderRoute: typeof KitsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materiales': {
+      id: '/materiales'
+      path: '/materiales'
+      fullPath: '/materiales'
+      preLoaderRoute: typeof MaterialesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nosotros': {
+      id: '/nosotros'
+      path: '/nosotros'
+      fullPath: '/nosotros'
+      preLoaderRoute: typeof NosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/olfactory': {
+      id: '/olfactory'
+      path: '/olfactory'
+      fullPath: '/olfactory'
+      preLoaderRoute: typeof OlfactoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/talleres': {
+      id: '/talleres'
+      path: '/talleres'
+      fullPath: '/talleres'
+      preLoaderRoute: typeof TalleresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pedido/$numero': {
+      id: '/pedido/$numero'
+      path: '/pedido/$numero'
+      fullPath: '/pedido/$numero'
+      preLoaderRoute: typeof PedidoNumeroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/talleres/': {
+      id: '/talleres/'
+      path: '/'
+      fullPath: '/talleres/'
+      preLoaderRoute: typeof TalleresIndexRouteImport
+      parentRoute: typeof TalleresRoute
+    }
+    '/talleres/$slug': {
+      id: '/talleres/$slug'
+      path: '/$slug'
+      fullPath: '/talleres/$slug'
+      preLoaderRoute: typeof TalleresSlugRouteImport
+      parentRoute: typeof TalleresRoute
+    }
   }
 }
 
+interface TalleresRouteChildren {
+  TalleresSlugRoute: typeof TalleresSlugRoute
+  TalleresIndexRoute: typeof TalleresIndexRoute
+}
+
+const TalleresRouteChildren: TalleresRouteChildren = {
+  TalleresSlugRoute: TalleresSlugRoute,
+  TalleresIndexRoute: TalleresIndexRoute,
+}
+
+const TalleresRouteWithChildren = TalleresRoute._addFileChildren(
+  TalleresRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CarritoRoute: CarritoRoute,
+  CheckoutRoute: CheckoutRoute,
+  ContactoRoute: ContactoRoute,
+  EventosRoute: EventosRoute,
+  KitsRoute: KitsRoute,
+  MaterialesRoute: MaterialesRoute,
+  NosotrosRoute: NosotrosRoute,
+  OlfactoryRoute: OlfactoryRoute,
+  TalleresRoute: TalleresRouteWithChildren,
+  PedidoNumeroRoute: PedidoNumeroRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
