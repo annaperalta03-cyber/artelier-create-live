@@ -10,8 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as EventosRouteImport } from './routes/eventos'
 import { Route as KitsRouteImport } from './routes/kits'
 import { Route as MaterialesRouteImport } from './routes/materiales'
+import { Route as NosotrosRouteImport } from './routes/nosotros'
+import { Route as OlfactoryRouteImport } from './routes/olfactory'
 import { Route as TalleresRouteImport } from './routes/talleres'
 import { Route as TalleresIndexRouteImport } from './routes/talleres.index'
 import { Route as TalleresSlugRouteImport } from './routes/talleres.$slug'
@@ -19,6 +23,16 @@ import { Route as TalleresSlugRouteImport } from './routes/talleres.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventosRoute = EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KitsRoute = KitsRouteImport.update({
@@ -29,6 +43,16 @@ const KitsRoute = KitsRouteImport.update({
 const MaterialesRoute = MaterialesRouteImport.update({
   id: '/materiales',
   path: '/materiales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NosotrosRoute = NosotrosRouteImport.update({
+  id: '/nosotros',
+  path: '/nosotros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OlfactoryRoute = OlfactoryRouteImport.update({
+  id: '/olfactory',
+  path: '/olfactory',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TalleresRoute = TalleresRouteImport.update({
@@ -49,24 +73,36 @@ const TalleresSlugRoute = TalleresSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/eventos': typeof EventosRoute
   '/kits': typeof KitsRoute
   '/materiales': typeof MaterialesRoute
+  '/nosotros': typeof NosotrosRoute
+  '/olfactory': typeof OlfactoryRoute
   '/talleres': typeof TalleresRouteWithChildren
   '/talleres/$slug': typeof TalleresSlugRoute
   '/talleres/': typeof TalleresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/eventos': typeof EventosRoute
   '/kits': typeof KitsRoute
   '/materiales': typeof MaterialesRoute
+  '/nosotros': typeof NosotrosRoute
+  '/olfactory': typeof OlfactoryRoute
   '/talleres/$slug': typeof TalleresSlugRoute
   '/talleres': typeof TalleresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
+  '/eventos': typeof EventosRoute
   '/kits': typeof KitsRoute
   '/materiales': typeof MaterialesRoute
+  '/nosotros': typeof NosotrosRoute
+  '/olfactory': typeof OlfactoryRoute
   '/talleres': typeof TalleresRouteWithChildren
   '/talleres/$slug': typeof TalleresSlugRoute
   '/talleres/': typeof TalleresIndexRoute
@@ -75,18 +111,35 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contacto'
+    | '/eventos'
     | '/kits'
     | '/materiales'
+    | '/nosotros'
+    | '/olfactory'
     | '/talleres'
     | '/talleres/$slug'
     | '/talleres/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kits' | '/materiales' | '/talleres/$slug' | '/talleres'
+  to:
+    | '/'
+    | '/contacto'
+    | '/eventos'
+    | '/kits'
+    | '/materiales'
+    | '/nosotros'
+    | '/olfactory'
+    | '/talleres/$slug'
+    | '/talleres'
   id:
     | '__root__'
     | '/'
+    | '/contacto'
+    | '/eventos'
     | '/kits'
     | '/materiales'
+    | '/nosotros'
+    | '/olfactory'
     | '/talleres'
     | '/talleres/$slug'
     | '/talleres/'
@@ -94,8 +147,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
+  EventosRoute: typeof EventosRoute
   KitsRoute: typeof KitsRoute
   MaterialesRoute: typeof MaterialesRoute
+  NosotrosRoute: typeof NosotrosRoute
+  OlfactoryRoute: typeof OlfactoryRoute
   TalleresRoute: typeof TalleresRouteWithChildren
 }
 
@@ -106,6 +163,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eventos': {
+      id: '/eventos'
+      path: '/eventos'
+      fullPath: '/eventos'
+      preLoaderRoute: typeof EventosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kits': {
@@ -120,6 +191,20 @@ declare module '@tanstack/react-router' {
       path: '/materiales'
       fullPath: '/materiales'
       preLoaderRoute: typeof MaterialesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nosotros': {
+      id: '/nosotros'
+      path: '/nosotros'
+      fullPath: '/nosotros'
+      preLoaderRoute: typeof NosotrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/olfactory': {
+      id: '/olfactory'
+      path: '/olfactory'
+      fullPath: '/olfactory'
+      preLoaderRoute: typeof OlfactoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/talleres': {
@@ -162,8 +247,12 @@ const TalleresRouteWithChildren = TalleresRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
+  EventosRoute: EventosRoute,
   KitsRoute: KitsRoute,
   MaterialesRoute: MaterialesRoute,
+  NosotrosRoute: NosotrosRoute,
+  OlfactoryRoute: OlfactoryRoute,
   TalleresRoute: TalleresRouteWithChildren,
 }
 export const routeTree = rootRouteImport
