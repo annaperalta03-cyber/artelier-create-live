@@ -12,7 +12,7 @@ export type CartItem = {
   id: string;
   nombre: string;
   precio: number;
-  variante?: string;
+  variante?: string | undefined;
   tipo: "kit" | "material" | "fragancia" | "taller";
   cantidad: number;
 };
@@ -57,7 +57,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const i = prev.findIndex((p) => key(p.id, p.variante) === key(item.id, item.variante));
       if (i === -1) return [...prev, { ...item, cantidad }];
       const copia = [...prev];
-      copia[i] = { ...copia[i], cantidad: copia[i].cantidad + cantidad };
+      const actual = copia[i]!;
+      copia[i] = { ...actual, cantidad: actual.cantidad + cantidad };
       return copia;
     });
   }, []);
