@@ -331,7 +331,7 @@ function Home() {
           <p className="nota-mano max-w-[18ch] rotate-2">recogido de la mesa del taller</p>
         </div>
 
-        <div className="-mx-4 mt-14 flex snap-x items-start gap-10 overflow-x-auto px-6 pb-10 pt-6 lg:-mx-8 lg:px-10">
+        <div className="-mx-4 mt-14 flex snap-x items-start gap-10 overflow-x-auto px-8 pb-10 pt-6 lg:-mx-8 lg:px-12">
           {testimonios.map((t, i) => {
             const tipo = i % 3;
             const giro = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1", "rotate-2"][i % 4] ?? "";
