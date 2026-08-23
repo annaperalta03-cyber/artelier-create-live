@@ -324,30 +324,85 @@ function Home() {
         </section>
       )}
 
-      {/* TESTIMONIOS */}
-      <section className="border-b border-ink px-4 py-14 lg:px-8 lg:py-20">
-        <h2 className="display-lg">Lo que dicen<br />los que ya crearon.</h2>
-        <div className="-mx-4 mt-10 flex snap-x gap-4 overflow-x-auto px-4 pb-4 lg:-mx-8 lg:px-8">
-          {testimonios.map((t) => (
-            <blockquote
-              key={t.texto}
-              className={`flex w-80 shrink-0 snap-start flex-col justify-between gap-6 border border-ink p-7 sm:w-96 ${
-                t.acento === "chartreuse"
-                  ? "bg-chartreuse text-ink"
-                  : t.acento === "tomate"
-                    ? "bg-tomate text-paper"
-                    : t.acento === "cobalto"
-                      ? "bg-cobalto text-paper"
-                      : "bg-rosa text-paper"
-              }`}
-            >
-              <p className="text-lg">★★★★★</p>
-              <p className="font-display text-2xl font-black uppercase leading-tight">{t.texto}</p>
-              <footer className="label-xs">— {t.autor} —</footer>
-            </blockquote>
-          ))}
+      {/* ARTEFACTOS DEL TALLER (testimonios) */}
+      <section className="relative overflow-hidden border-b border-ink px-4 py-14 lg:px-8 lg:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="display-lg">Lo que dicen<br />los que ya crearon.</h2>
+          <p className="nota-mano max-w-[18ch] rotate-2">recogido de la mesa del taller</p>
+        </div>
+
+        <div className="-mx-4 mt-12 flex snap-x items-start gap-8 overflow-x-auto px-4 pb-8 lg:-mx-8 lg:px-8">
+          {testimonios.map((t, i) => {
+            const tipo = i % 3;
+            const giro = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1", "rotate-2"][i % 4];
+
+            if (tipo === 0) {
+              // Ficha de fórmula del laboratorio
+              return (
+                <figure
+                  key={t.texto}
+                  className={`ficha-formula relative w-80 shrink-0 snap-start border border-ink p-6 shadow-[6px_8px_0_0_oklch(0.19_0_0)] sm:w-96 ${giro}`}
+                >
+                  <div className="flex items-baseline justify-between border-b border-ink pb-3">
+                    <span className="label-xs">Fórmula Nº {String(i + 1).padStart(3, "0")}</span>
+                    <span className="label-xs opacity-60">Artelier Lab</span>
+                  </div>
+                  <blockquote className="nota-mano mt-6 text-ink">“{t.texto}”</blockquote>
+                  <div className="mt-8 flex items-end justify-between gap-4">
+                    <figcaption className="label-xs">— {t.autor}</figcaption>
+                    <span className="font-mano text-2xl text-cobalto">★★★★★</span>
+                  </div>
+                  <span className="etiqueta absolute -right-3 -top-4 rotate-[6deg]">Aprobado</span>
+                </figure>
+              );
+            }
+
+            if (tipo === 1) {
+              // Nota manuscrita en papel rasgado
+              return (
+                <figure
+                  key={t.texto}
+                  className={`papel-rasgado relative w-72 shrink-0 snap-start bg-paper p-7 sm:w-80 ${giro}`}
+                >
+                  <span className="label-xs opacity-60">Nota del taller</span>
+                  <blockquote className="nota-mano mt-5 text-ink">{t.texto}</blockquote>
+                  <figcaption className="font-mano mt-6 text-xl text-tomate">
+                    {t.autor}
+                  </figcaption>
+                </figure>
+              );
+            }
+
+            // Fotografía del taller con cita en cinta
+            return (
+              <figure
+                key={t.texto}
+                className={`relative w-80 shrink-0 snap-start border border-ink sm:w-96 ${giro}`}
+              >
+                <div className="trama relative">
+                  <img
+                    src={[bw1, bw2, bw3, cutBlotters][i % 4]}
+                    alt="Detalle del taller Artelier"
+                    loading="lazy"
+                    width={900}
+                    height={1100}
+                    className={`aspect-4/5 w-full object-cover grayscale contrast-125 ${
+                      t.acento === "cobalto" ? "bg-cobalto" : t.acento === "tomate" ? "bg-tomate" : "bg-chartreuse"
+                    } mix-blend-luminosity`}
+                  />
+                </div>
+                <blockquote className="absolute inset-x-4 bottom-10 border border-ink bg-paper p-4 font-display text-xl font-black uppercase leading-none text-ink shadow-[4px_5px_0_0_oklch(0.19_0_0)]">
+                  {t.texto}
+                </blockquote>
+                <figcaption className="etiqueta absolute -bottom-3 left-6 rotate-[-3deg]">
+                  {t.autor}
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </section>
+
 
       {/* INSTAGRAM */}
       <section className="border-b border-ink px-4 py-14 lg:px-8 lg:py-20">
