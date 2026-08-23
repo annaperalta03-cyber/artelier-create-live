@@ -8,6 +8,10 @@ import uTalleres from "@/assets/universo-talleres.jpg";
 import uKits from "@/assets/universo-kits.jpg";
 import uMateriales from "@/assets/universo-materiales.jpg";
 import uOlfactory from "@/assets/universo-olfactory.jpg";
+import cutVela from "@/assets/cut-vela.png";
+import cutPigmento from "@/assets/cut-pigmento.png";
+import cutBlotters from "@/assets/cut-blotters.png";
+
 import { ProductCard } from "@/components/ProductCard";
 import { kits, materiales, proximasFechas, talleres, testimonios } from "@/data/catalog";
 import { rd, site } from "@/lib/site";
@@ -90,16 +94,44 @@ function Home() {
 
   return (
     <>
-      {/* HERO editorial asimétrico */}
-      <section className="grid border-b border-ink lg:grid-cols-[1.15fr_1fr]">
-        <div className="paper-texture relative flex flex-col justify-between gap-10 px-4 py-12 lg:px-8 lg:py-16">
+      {/* HERO: el titular manda */}
+      <section className="paper-texture relative overflow-hidden border-b border-ink px-4 pb-10 pt-8 lg:px-8 lg:pb-16">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="label-xs">Estudio creativo · Laboratorio · Tienda para makers</p>
-          <h1 className="display-xl">
+          <span className="etiqueta -rotate-2">Santo Domingo, RD</span>
+        </div>
+
+        <div className="relative mt-6">
+          <h1 className="display-xl relative z-20">
             Menos<br />
             scroll.<br />
             <span className="text-tomate">Más crear.</span>
           </h1>
+
+          {/* recortes que rompen el bloque de tipografía */}
+          <img
+            src={cutPigmento}
+            alt=""
+            aria-hidden
+            width={900}
+            height={900}
+            className="pointer-events-none absolute -top-4 right-[2%] z-30 w-32 rotate-[9deg] object-contain sm:w-44 lg:w-64"
+          />
+          <img
+            src={cutVela}
+            alt=""
+            aria-hidden
+            width={900}
+            height={900}
+            className="pointer-events-none absolute bottom-0 right-[26%] z-10 hidden w-28 -rotate-6 object-contain sm:block lg:w-40"
+          />
+        </div>
+
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <div className="max-w-xl">
+            <p className="nota-mano mb-5 max-w-[20ch] -rotate-2">
+              aquí se ensucian las manos
+            </p>
             <p className="text-lg leading-snug lg:text-xl">
               Talleres, kits, materiales y experiencias diseñadas para descubrir cosas nuevas,
               crear con tus manos y compartir momentos que sí se quedan contigo.
@@ -116,39 +148,46 @@ function Home() {
               </Link>
             </div>
           </div>
-        </div>
-        <div className="relative border-t border-ink lg:border-l lg:border-t-0">
-          <img
-            src={heroImg}
-            alt="Manos vertiendo cera en un frasco rodeado de pipetas, pigmentos y frascos de fragancia"
-            width={1408}
-            height={1600}
-            className="h-full w-full object-cover"
-          />
-          <span className="label-xs absolute bottom-5 left-0 bg-chartreuse px-3 py-2 text-ink">
-            Santo Domingo, RD
-          </span>
+          <div className="relative lg:-mb-16 lg:translate-x-6">
+            <img
+              src={heroImg}
+              alt="Manos vertiendo cera en un frasco rodeado de pipetas, pigmentos y frascos de fragancia"
+              width={1408}
+              height={1600}
+              className="aspect-4/3 w-full border border-ink object-cover"
+            />
+            <span className="etiqueta absolute -left-3 top-6 rotate-[-4deg]">Lab 01 · Cera</span>
+          </div>
         </div>
       </section>
 
-      {/* TIRA EDITORIAL B&N */}
+      {/* TIRA EDITORIAL B&N con etiquetas tipo cinta */}
       <section aria-label="Dentro del estudio" className="grid grid-cols-3 border-b border-ink">
         {[
-          { src: bw1, alt: "Manos amasando cera suave, primer plano en blanco y negro" },
-          { src: bw2, alt: "Pigmento cayendo dentro de un vaso de precipitados" },
-          { src: bw3, alt: "Gotero soltando una gota de aceite de fragancia" },
-        ].map((f) => (
-          <img
-            key={f.alt}
-            src={f.src}
-            alt={f.alt}
-            loading="lazy"
-            width={900}
-            height={1100}
-            className="aspect-3/4 w-full object-cover grayscale"
-          />
+          { src: bw1, alt: "Manos amasando cera suave, primer plano en blanco y negro", tag: "Antes" },
+          { src: bw2, alt: "Pigmento cayendo dentro de un vaso de precipitados", tag: "Durante" },
+          { src: bw3, alt: "Gotero soltando una gota de aceite de fragancia", tag: "Después" },
+        ].map((f, i) => (
+          <figure key={f.alt} className="trama relative overflow-hidden">
+            <img
+              src={f.src}
+              alt={f.alt}
+              loading="lazy"
+              width={900}
+              height={1100}
+              className="aspect-3/4 w-full object-cover grayscale contrast-125"
+            />
+            <figcaption
+              className={`etiqueta absolute bottom-4 z-10 ${
+                i === 1 ? "right-4 rotate-2" : "left-4 -rotate-2"
+              }`}
+            >
+              {f.tag}
+            </figcaption>
+          </figure>
         ))}
       </section>
+
 
       {/* CUATRO UNIVERSOS */}
       <section className="border-b border-ink">
@@ -165,30 +204,49 @@ function Home() {
               i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
             }`}
           >
-            <div className={`flex flex-col justify-between gap-8 p-6 lg:p-12 ${u.bg}`}>
-              <div className="flex items-baseline gap-4">
-                <span className="font-display text-5xl font-black lg:text-7xl">{u.n}</span>
-                <span className="label-xs">{u.kicker}</span>
-              </div>
-              <h3 className="display-md max-w-[18ch]">{u.titulo}</h3>
-              <p className="max-w-md text-base opacity-90 lg:text-lg">{u.texto}</p>
+            <div
+              className={`relative flex flex-col justify-between gap-8 overflow-hidden p-6 lg:p-12 ${u.bg}`}
+            >
+              <span
+                aria-hidden
+                className={`numero-gigante pointer-events-none absolute -bottom-8 opacity-15 ${
+                  i % 2 === 1 ? "left-2" : "right-2"
+                }`}
+              >
+                {u.n}
+              </span>
+              <span className="label-xs relative w-fit rotate-[-1.5deg] border border-current px-3 py-2">
+                {u.kicker}
+              </span>
+              <h3 className="display-md relative max-w-[18ch]">{u.titulo}</h3>
+              <p className="relative max-w-md text-base opacity-90 lg:text-lg">{u.texto}</p>
               <Link
                 to={u.to}
-                className="label-xs inline-flex w-fit items-center gap-2 border border-current px-6 py-4"
+                className="label-xs relative inline-flex w-fit items-center gap-2 border border-current px-6 py-4"
               >
                 {u.cta} <ArrowUpRight className="size-4" />
               </Link>
             </div>
-            <img
-              src={u.img}
-              alt={u.kicker}
-              loading="lazy"
-              width={1200}
-              height={900}
-              className="h-full min-h-64 w-full object-cover"
-            />
+            <div className="relative">
+              <img
+                src={u.img}
+                alt={u.kicker}
+                loading="lazy"
+                width={1200}
+                height={900}
+                className="h-full min-h-64 w-full object-cover contrast-110 saturate-125"
+              />
+              <span
+                className={`etiqueta absolute top-6 z-10 ${
+                  i % 2 === 1 ? "right-0 translate-x-2 rotate-2" : "left-0 -translate-x-2 -rotate-2"
+                }`}
+              >
+                {u.n} / 04
+              </span>
+            </div>
           </div>
         ))}
+
       </section>
 
       {/* ¿QUÉ QUIERES HACER? */}
@@ -266,30 +324,92 @@ function Home() {
         </section>
       )}
 
-      {/* TESTIMONIOS */}
-      <section className="border-b border-ink px-4 py-14 lg:px-8 lg:py-20">
-        <h2 className="display-lg">Lo que dicen<br />los que ya crearon.</h2>
-        <div className="-mx-4 mt-10 flex snap-x gap-4 overflow-x-auto px-4 pb-4 lg:-mx-8 lg:px-8">
-          {testimonios.map((t) => (
-            <blockquote
-              key={t.texto}
-              className={`flex w-80 shrink-0 snap-start flex-col justify-between gap-6 border border-ink p-7 sm:w-96 ${
-                t.acento === "chartreuse"
-                  ? "bg-chartreuse text-ink"
-                  : t.acento === "tomate"
-                    ? "bg-tomate text-paper"
-                    : t.acento === "cobalto"
-                      ? "bg-cobalto text-paper"
-                      : "bg-rosa text-paper"
-              }`}
-            >
-              <p className="text-lg">★★★★★</p>
-              <p className="font-display text-2xl font-black uppercase leading-tight">{t.texto}</p>
-              <footer className="label-xs">— {t.autor} —</footer>
-            </blockquote>
-          ))}
+      {/* ARTEFACTOS DEL TALLER (testimonios) */}
+      <section className="relative overflow-hidden border-b border-ink px-4 py-14 lg:px-8 lg:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="display-lg">Lo que dicen<br />los que ya crearon.</h2>
+          <p className="nota-mano max-w-[18ch] rotate-2">recogido de la mesa del taller</p>
+        </div>
+
+        <div className="-mx-4 mt-14 flex snap-x items-start gap-10 overflow-x-auto px-8 pb-10 pt-6 lg:-mx-8 lg:px-12">
+          {testimonios.map((t, i) => {
+            const tipo = i % 3;
+            const giro = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1", "rotate-2"][i % 4] ?? "";
+            const acento =
+              t.acento === "cobalto"
+                ? "bg-cobalto text-paper"
+                : t.acento === "tomate"
+                  ? "bg-tomate text-paper"
+                  : t.acento === "rosa"
+                    ? "bg-rosa text-paper"
+                    : "bg-chartreuse text-ink";
+
+            if (tipo === 0) {
+              // Ficha de fórmula del laboratorio
+              return (
+                <figure
+                  key={t.texto}
+                  className={`ficha-formula relative w-80 shrink-0 snap-start border border-ink p-6 shadow-[6px_8px_0_0_oklch(0.19_0_0)] sm:w-96 ${giro}`}
+                >
+                  <div className="flex items-baseline justify-between border-b border-ink pb-3">
+                    <span className="label-xs">Fórmula Nº {String(i + 1).padStart(3, "0")}</span>
+                    <span className="label-xs opacity-60">Artelier Lab</span>
+                  </div>
+                  <blockquote className="nota-mano mt-6 text-ink">“{t.texto}”</blockquote>
+                  <div className="mt-8 flex items-end justify-between gap-4">
+                    <figcaption className="label-xs">— {t.autor}</figcaption>
+                    <span className="font-mano text-2xl text-cobalto">★★★★★</span>
+                  </div>
+                  <span className="etiqueta absolute -right-3 -top-4 rotate-[6deg]">Aprobado</span>
+                </figure>
+              );
+            }
+
+            if (tipo === 1) {
+              // Nota manuscrita sobre papel de color, rasgado
+              return (
+                <figure
+                  key={t.texto}
+                  className={`papel-rasgado relative w-72 shrink-0 snap-start px-7 py-9 sm:w-80 ${acento} ${giro}`}
+                >
+                  <span className="label-xs opacity-70">Nota del taller</span>
+                  <blockquote className="nota-mano mt-5 text-current">{t.texto}</blockquote>
+                  <figcaption className="font-mano mt-6 text-xl text-current opacity-80">
+                    {t.autor}
+                  </figcaption>
+                </figure>
+              );
+            }
+
+            // Fotografía del taller con cita en cinta
+            return (
+              <figure
+                key={t.texto}
+                className={`relative w-80 shrink-0 snap-start border border-ink sm:w-96 ${giro}`}
+              >
+                <div className={`trama relative ${acento}`}>
+                  <img
+                    src={[bw1, bw2, bw3, cutBlotters][i % 4] ?? bw1}
+                    alt="Detalle del taller Artelier"
+                    loading="lazy"
+                    width={900}
+                    height={1100}
+                    className="aspect-4/5 w-full object-cover grayscale contrast-125 mix-blend-screen"
+                  />
+                </div>
+
+                <blockquote className="absolute inset-x-4 bottom-10 border border-ink bg-paper p-4 font-display text-xl font-black uppercase leading-none text-ink shadow-[4px_5px_0_0_oklch(0.19_0_0)]">
+                  {t.texto}
+                </blockquote>
+                <figcaption className="etiqueta absolute -bottom-3 left-6 rotate-[-3deg]">
+                  {t.autor}
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </section>
+
 
       {/* INSTAGRAM */}
       <section className="border-b border-ink px-4 py-14 lg:px-8 lg:py-20">

@@ -3,6 +3,13 @@ import { useCart } from "@/lib/cart";
 import { rd } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { Acento, Producto } from "@/data/catalog";
+import cutVela from "@/assets/cut-vela.png";
+import cutFrasco from "@/assets/cut-frasco.png";
+import cutPigmento from "@/assets/cut-pigmento.png";
+import cutBlotters from "@/assets/cut-blotters.png";
+
+const recortes = [cutVela, cutPigmento, cutFrasco, cutBlotters];
+
 
 export const bgAcento: Record<Acento, string> = {
   cobalto: "bg-cobalto text-paper",
@@ -28,6 +35,10 @@ type Props = {
 export function ProductCard({ producto, tipo }: Props) {
   const { add } = useCart();
   const variante = producto.variantes?.[0];
+  const recorte =
+    recortes[[...producto.id].reduce((a, c) => a + c.charCodeAt(0), 0) % recortes.length] ??
+    cutVela;
+
 
   const agregar = () => {
     add({
@@ -58,9 +69,19 @@ export function ProductCard({ producto, tipo }: Props) {
         )}
       >
         <span className="paper-texture pointer-events-none absolute inset-0 opacity-40" />
-        <span className="display-md relative max-w-[14ch] break-words leading-[0.85]">
+        <img
+          src={recorte}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          width={900}
+          height={900}
+          className="pointer-events-none absolute -right-6 top-1/2 w-[62%] -translate-y-1/2 rotate-[-6deg] object-contain drop-shadow-[6px_8px_0_oklch(0.19_0_0_/_35%)] transition-transform duration-300 group-hover:rotate-[-2deg] group-hover:scale-105"
+        />
+        <span className="display-md relative max-w-[9ch] break-words leading-[0.82] mix-blend-normal">
           {producto.nombre}
         </span>
+        <span className="etiqueta absolute right-3 top-3 rotate-[4deg]">{rd(producto.precio)}</span>
         <button
           type="button"
           onClick={agregar}
@@ -69,6 +90,7 @@ export function ProductCard({ producto, tipo }: Props) {
           Agregar al carrito
         </button>
       </div>
+
 
       <div className="flex flex-col gap-2 p-4">
         <div className="flex items-baseline justify-between gap-3">

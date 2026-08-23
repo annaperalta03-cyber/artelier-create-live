@@ -27,7 +27,7 @@ export const Route = createFileRoute("/olfactory")({
 
 function FraganciaCard({ f }: { f: Fragancia }) {
   const { add } = useCart();
-  const [tamano, setTamano] = useState(f.tamanos[0]);
+  const [tamano, setTamano] = useState(f.tamanos[0]!);
   const precio = tamano.onzas * site.precioOnzaFragancia;
 
   return (
