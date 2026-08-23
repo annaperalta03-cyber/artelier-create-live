@@ -334,7 +334,7 @@ function Home() {
         <div className="-mx-4 mt-12 flex snap-x items-start gap-8 overflow-x-auto px-4 pb-8 lg:-mx-8 lg:px-8">
           {testimonios.map((t, i) => {
             const tipo = i % 3;
-            const giro = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1", "rotate-2"][i % 4];
+            const giro = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1", "rotate-2"][i % 4] ?? "";
 
             if (tipo === 0) {
               // Ficha de fórmula del laboratorio
@@ -381,7 +381,7 @@ function Home() {
               >
                 <div className="trama relative">
                   <img
-                    src={[bw1, bw2, bw3, cutBlotters][i % 4]}
+                    src={[bw1, bw2, bw3, cutBlotters][i % 4] ?? bw1}
                     alt="Detalle del taller Artelier"
                     loading="lazy"
                     width={900}
