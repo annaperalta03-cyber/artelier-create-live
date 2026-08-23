@@ -331,10 +331,18 @@ function Home() {
           <p className="nota-mano max-w-[18ch] rotate-2">recogido de la mesa del taller</p>
         </div>
 
-        <div className="-mx-4 mt-12 flex snap-x items-start gap-8 overflow-x-auto px-4 pb-8 lg:-mx-8 lg:px-8">
+        <div className="-mx-4 mt-14 flex snap-x items-start gap-10 overflow-x-auto px-6 pb-10 pt-6 lg:-mx-8 lg:px-10">
           {testimonios.map((t, i) => {
             const tipo = i % 3;
             const giro = ["-rotate-2", "rotate-[1.5deg]", "-rotate-1", "rotate-2"][i % 4] ?? "";
+            const acento =
+              t.acento === "cobalto"
+                ? "bg-cobalto text-paper"
+                : t.acento === "tomate"
+                  ? "bg-tomate text-paper"
+                  : t.acento === "rosa"
+                    ? "bg-rosa text-paper"
+                    : "bg-chartreuse text-ink";
 
             if (tipo === 0) {
               // Ficha de fórmula del laboratorio
@@ -358,15 +366,15 @@ function Home() {
             }
 
             if (tipo === 1) {
-              // Nota manuscrita en papel rasgado
+              // Nota manuscrita sobre papel de color, rasgado
               return (
                 <figure
                   key={t.texto}
-                  className={`papel-rasgado relative w-72 shrink-0 snap-start bg-paper p-7 sm:w-80 ${giro}`}
+                  className={`papel-rasgado relative w-72 shrink-0 snap-start px-7 py-9 sm:w-80 ${acento} ${giro}`}
                 >
-                  <span className="label-xs opacity-60">Nota del taller</span>
-                  <blockquote className="nota-mano mt-5 text-ink">{t.texto}</blockquote>
-                  <figcaption className="font-mano mt-6 text-xl text-tomate">
+                  <span className="label-xs opacity-70">Nota del taller</span>
+                  <blockquote className="nota-mano mt-5 text-current">{t.texto}</blockquote>
+                  <figcaption className="font-mano mt-6 text-xl text-current opacity-80">
                     {t.autor}
                   </figcaption>
                 </figure>
@@ -379,18 +387,17 @@ function Home() {
                 key={t.texto}
                 className={`relative w-80 shrink-0 snap-start border border-ink sm:w-96 ${giro}`}
               >
-                <div className="trama relative">
+                <div className={`trama relative ${acento}`}>
                   <img
                     src={[bw1, bw2, bw3, cutBlotters][i % 4] ?? bw1}
                     alt="Detalle del taller Artelier"
                     loading="lazy"
                     width={900}
                     height={1100}
-                    className={`aspect-4/5 w-full object-cover grayscale contrast-125 ${
-                      t.acento === "cobalto" ? "bg-cobalto" : t.acento === "tomate" ? "bg-tomate" : "bg-chartreuse"
-                    } mix-blend-luminosity`}
+                    className="aspect-4/5 w-full object-cover grayscale contrast-125 mix-blend-screen"
                   />
                 </div>
+
                 <blockquote className="absolute inset-x-4 bottom-10 border border-ink bg-paper p-4 font-display text-xl font-black uppercase leading-none text-ink shadow-[4px_5px_0_0_oklch(0.19_0_0)]">
                   {t.texto}
                 </blockquote>
