@@ -35,6 +35,11 @@ type Props = {
 export function ProductCard({ producto, tipo }: Props) {
   const { add } = useCart();
   const variante = producto.variantes?.[0];
+  const recorte =
+    recortes[
+      [...producto.id].reduce((a, c) => a + c.charCodeAt(0), 0) % recortes.length
+    ];
+
 
   const agregar = () => {
     add({
