@@ -90,15 +90,43 @@ function Home() {
 
   return (
     <>
-      {/* HERO editorial asimétrico */}
-      <section className="grid border-b border-ink lg:grid-cols-[1.15fr_1fr]">
-        <div className="paper-texture relative flex flex-col justify-between gap-10 px-4 py-12 lg:px-8 lg:py-16">
+      {/* HERO: el titular manda */}
+      <section className="paper-texture relative overflow-hidden border-b border-ink px-4 pb-10 pt-8 lg:px-8 lg:pb-16">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="label-xs">Estudio creativo · Laboratorio · Tienda para makers</p>
-          <h1 className="display-xl">
+          <span className="etiqueta -rotate-2">Santo Domingo, RD</span>
+        </div>
+
+        <div className="relative mt-6">
+          <h1 className="display-xl relative z-20">
             Menos<br />
             scroll.<br />
             <span className="text-tomate">Más crear.</span>
           </h1>
+
+          {/* recortes que rompen el bloque de tipografía */}
+          <img
+            src={cutPigmento}
+            alt=""
+            aria-hidden
+            width={900}
+            height={900}
+            className="pointer-events-none absolute -top-4 right-[2%] z-30 w-32 rotate-[9deg] object-contain sm:w-44 lg:w-64"
+          />
+          <img
+            src={cutVela}
+            alt=""
+            aria-hidden
+            width={900}
+            height={900}
+            className="pointer-events-none absolute bottom-0 right-[26%] z-10 hidden w-28 -rotate-6 object-contain sm:block lg:w-40"
+          />
+          <p className="nota-mano absolute -bottom-6 left-[38%] z-30 hidden max-w-[16ch] -rotate-3 sm:block">
+            aquí se ensucian las manos
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
           <div className="max-w-xl">
             <p className="text-lg leading-snug lg:text-xl">
               Talleres, kits, materiales y experiencias diseñadas para descubrir cosas nuevas,
@@ -116,39 +144,46 @@ function Home() {
               </Link>
             </div>
           </div>
-        </div>
-        <div className="relative border-t border-ink lg:border-l lg:border-t-0">
-          <img
-            src={heroImg}
-            alt="Manos vertiendo cera en un frasco rodeado de pipetas, pigmentos y frascos de fragancia"
-            width={1408}
-            height={1600}
-            className="h-full w-full object-cover"
-          />
-          <span className="label-xs absolute bottom-5 left-0 bg-chartreuse px-3 py-2 text-ink">
-            Santo Domingo, RD
-          </span>
+          <div className="relative lg:-mb-16 lg:translate-x-6">
+            <img
+              src={heroImg}
+              alt="Manos vertiendo cera en un frasco rodeado de pipetas, pigmentos y frascos de fragancia"
+              width={1408}
+              height={1600}
+              className="aspect-4/3 w-full border border-ink object-cover lg:aspect-3/4"
+            />
+            <span className="etiqueta absolute -left-3 top-6 rotate-[-4deg]">Lab 01 · Cera</span>
+          </div>
         </div>
       </section>
 
-      {/* TIRA EDITORIAL B&N */}
+      {/* TIRA EDITORIAL B&N con etiquetas tipo cinta */}
       <section aria-label="Dentro del estudio" className="grid grid-cols-3 border-b border-ink">
         {[
-          { src: bw1, alt: "Manos amasando cera suave, primer plano en blanco y negro" },
-          { src: bw2, alt: "Pigmento cayendo dentro de un vaso de precipitados" },
-          { src: bw3, alt: "Gotero soltando una gota de aceite de fragancia" },
-        ].map((f) => (
-          <img
-            key={f.alt}
-            src={f.src}
-            alt={f.alt}
-            loading="lazy"
-            width={900}
-            height={1100}
-            className="aspect-3/4 w-full object-cover grayscale"
-          />
+          { src: bw1, alt: "Manos amasando cera suave, primer plano en blanco y negro", tag: "Antes" },
+          { src: bw2, alt: "Pigmento cayendo dentro de un vaso de precipitados", tag: "Durante" },
+          { src: bw3, alt: "Gotero soltando una gota de aceite de fragancia", tag: "Después" },
+        ].map((f, i) => (
+          <figure key={f.alt} className="trama relative overflow-hidden">
+            <img
+              src={f.src}
+              alt={f.alt}
+              loading="lazy"
+              width={900}
+              height={1100}
+              className="aspect-3/4 w-full object-cover grayscale contrast-125"
+            />
+            <figcaption
+              className={`etiqueta absolute bottom-4 z-10 ${
+                i === 1 ? "right-4 rotate-2" : "left-4 -rotate-2"
+              }`}
+            >
+              {f.tag}
+            </figcaption>
+          </figure>
         ))}
       </section>
+
 
       {/* CUATRO UNIVERSOS */}
       <section className="border-b border-ink">
