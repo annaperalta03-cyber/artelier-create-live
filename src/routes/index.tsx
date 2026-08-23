@@ -125,13 +125,13 @@ function Home() {
             height={900}
             className="pointer-events-none absolute bottom-0 right-[26%] z-10 hidden w-28 -rotate-6 object-contain sm:block lg:w-40"
           />
-          <p className="nota-mano absolute -bottom-6 left-[38%] z-30 hidden max-w-[16ch] -rotate-3 sm:block">
-            aquí se ensucian las manos
-          </p>
         </div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-start">
           <div className="max-w-xl">
+            <p className="nota-mano mb-5 max-w-[20ch] -rotate-2">
+              aquí se ensucian las manos
+            </p>
             <p className="text-lg leading-snug lg:text-xl">
               Talleres, kits, materiales y experiencias diseñadas para descubrir cosas nuevas,
               crear con tus manos y compartir momentos que sí se quedan contigo.
@@ -154,7 +154,7 @@ function Home() {
               alt="Manos vertiendo cera en un frasco rodeado de pipetas, pigmentos y frascos de fragancia"
               width={1408}
               height={1600}
-              className="aspect-4/3 w-full border border-ink object-cover lg:aspect-3/4"
+              className="aspect-4/3 w-full border border-ink object-cover"
             />
             <span className="etiqueta absolute -left-3 top-6 rotate-[-4deg]">Lab 01 · Cera</span>
           </div>
