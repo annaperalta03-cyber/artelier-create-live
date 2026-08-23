@@ -8,6 +8,10 @@ import uTalleres from "@/assets/universo-talleres.jpg";
 import uKits from "@/assets/universo-kits.jpg";
 import uMateriales from "@/assets/universo-materiales.jpg";
 import uOlfactory from "@/assets/universo-olfactory.jpg";
+import cutVela from "@/assets/cut-vela.png";
+import cutPigmento from "@/assets/cut-pigmento.png";
+import cutBlotters from "@/assets/cut-blotters.png";
+
 import { ProductCard } from "@/components/ProductCard";
 import { kits, materiales, proximasFechas, talleres, testimonios } from "@/data/catalog";
 import { rd, site } from "@/lib/site";
