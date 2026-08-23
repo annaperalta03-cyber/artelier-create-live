@@ -204,30 +204,49 @@ function Home() {
               i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""
             }`}
           >
-            <div className={`flex flex-col justify-between gap-8 p-6 lg:p-12 ${u.bg}`}>
-              <div className="flex items-baseline gap-4">
-                <span className="font-display text-5xl font-black lg:text-7xl">{u.n}</span>
-                <span className="label-xs">{u.kicker}</span>
-              </div>
-              <h3 className="display-md max-w-[18ch]">{u.titulo}</h3>
-              <p className="max-w-md text-base opacity-90 lg:text-lg">{u.texto}</p>
+            <div
+              className={`relative flex flex-col justify-between gap-8 overflow-hidden p-6 lg:p-12 ${u.bg}`}
+            >
+              <span
+                aria-hidden
+                className={`numero-gigante pointer-events-none absolute -bottom-8 opacity-15 ${
+                  i % 2 === 1 ? "left-2" : "right-2"
+                }`}
+              >
+                {u.n}
+              </span>
+              <span className="label-xs relative rotate-[-1.5deg] border border-current px-3 py-2">
+                {u.kicker}
+              </span>
+              <h3 className="display-md relative max-w-[18ch]">{u.titulo}</h3>
+              <p className="relative max-w-md text-base opacity-90 lg:text-lg">{u.texto}</p>
               <Link
                 to={u.to}
-                className="label-xs inline-flex w-fit items-center gap-2 border border-current px-6 py-4"
+                className="label-xs relative inline-flex w-fit items-center gap-2 border border-current px-6 py-4"
               >
                 {u.cta} <ArrowUpRight className="size-4" />
               </Link>
             </div>
-            <img
-              src={u.img}
-              alt={u.kicker}
-              loading="lazy"
-              width={1200}
-              height={900}
-              className="h-full min-h-64 w-full object-cover"
-            />
+            <div className="relative">
+              <img
+                src={u.img}
+                alt={u.kicker}
+                loading="lazy"
+                width={1200}
+                height={900}
+                className="h-full min-h-64 w-full object-cover contrast-110 saturate-125"
+              />
+              <span
+                className={`etiqueta absolute top-6 z-10 ${
+                  i % 2 === 1 ? "right-0 translate-x-2 rotate-2" : "left-0 -translate-x-2 -rotate-2"
+                }`}
+              >
+                {u.n} / 04
+              </span>
+            </div>
           </div>
         ))}
+
       </section>
 
       {/* ¿QUÉ QUIERES HACER? */}
