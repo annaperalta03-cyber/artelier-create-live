@@ -3,6 +3,13 @@ import { useCart } from "@/lib/cart";
 import { rd } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import type { Acento, Producto } from "@/data/catalog";
+import cutVela from "@/assets/cut-vela.png";
+import cutFrasco from "@/assets/cut-frasco.png";
+import cutPigmento from "@/assets/cut-pigmento.png";
+import cutBlotters from "@/assets/cut-blotters.png";
+
+const recortes = [cutVela, cutPigmento, cutFrasco, cutBlotters];
+
 
 export const bgAcento: Record<Acento, string> = {
   cobalto: "bg-cobalto text-paper",
