@@ -215,7 +215,7 @@ function Home() {
               >
                 {u.n}
               </span>
-              <span className="label-xs relative rotate-[-1.5deg] border border-current px-3 py-2">
+              <span className="label-xs relative w-fit rotate-[-1.5deg] border border-current px-3 py-2">
                 {u.kicker}
               </span>
               <h3 className="display-md relative max-w-[18ch]">{u.titulo}</h3>
