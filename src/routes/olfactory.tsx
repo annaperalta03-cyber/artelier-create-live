@@ -111,8 +111,8 @@ function OlfactoryPage() {
           </p>
         </div>
         <img
-          src={uOlfactory}
-          alt="Frascos ámbar de fragancia con etiquetas escritas a mano y blotters"
+          src={olfactoryGaleria.url}
+          alt="Galería Artelier Olfactory con afiches de fragancias, frascos ámbar y grafismos pintados a mano"
           loading="lazy"
           width={1200}
           height={900}
