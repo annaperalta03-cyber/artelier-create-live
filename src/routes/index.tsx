@@ -78,7 +78,7 @@ const universos = [
     cta: "Explorar fragancias",
     to: "/olfactory" as const,
     img: uOlfactory,
-    bg: "bg-ink text-paper",
+    bg: "bg-cobalto text-paper",
   },
 ];
 
