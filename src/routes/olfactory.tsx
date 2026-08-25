@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import uOlfactory from "@/assets/universo-olfactory.jpg";
+import olfactoryGaleria from "@/assets/olfactory-galeria.png.asset.json";
 import { coleccionesOlfativas, fragancias, type Fragancia } from "@/data/catalog";
 import { useCart } from "@/lib/cart";
 import { rd, site } from "@/lib/site";
@@ -111,8 +111,8 @@ function OlfactoryPage() {
           </p>
         </div>
         <img
-          src={uOlfactory}
-          alt="Frascos ámbar de fragancia con etiquetas escritas a mano y blotters"
+          src={olfactoryGaleria.url}
+          alt="Galería Artelier Olfactory con afiches de fragancias, frascos ámbar y grafismos pintados a mano"
           loading="lazy"
           width={1200}
           height={900}
