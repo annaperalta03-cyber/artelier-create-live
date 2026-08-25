@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import uOlfactory from "@/assets/universo-olfactory.jpg";
+import olfactoryGaleria from "@/assets/olfactory-galeria.png.asset.json";
 import { coleccionesOlfativas, fragancias, type Fragancia } from "@/data/catalog";
 import { useCart } from "@/lib/cart";
 import { rd, site } from "@/lib/site";
