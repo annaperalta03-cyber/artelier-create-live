@@ -65,7 +65,7 @@ function CalcVelas() {
 
   return (
     <div className="ficha-formula border border-ink p-6 lg:p-8">
-      <p className="etiqueta absolute-none inline-block rotate-[-2deg]">Ficha 01</p>
+      <p className="etiqueta inline-block rotate-[-2deg]">Ficha 01</p>
       <h2 className="display-md mt-4">Calculadora de velas</h2>
       <p className="font-mano mt-2 text-lg">cera + fragancia, al gramo</p>
 
