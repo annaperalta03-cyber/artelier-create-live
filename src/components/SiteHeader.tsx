@@ -12,6 +12,7 @@ const nav = [
   { to: "/kits", label: "Kits" },
   { to: "/materiales", label: "Materiales", submenu: categoriasMateriales },
   { to: "/olfactory", label: "Artelier Olfactory" },
+  { to: "/calculadoras", label: "Calculadoras" },
   { to: "/eventos", label: "Eventos & Marcas" },
   { to: "/nosotros", label: "Nosotros" },
 ] as const;
