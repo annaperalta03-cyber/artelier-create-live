@@ -221,20 +221,20 @@ function Home() {
             >
               <span
                 aria-hidden
-                className={`numero-gigante pointer-events-none absolute -bottom-8 opacity-15 ${
+                className={`numero-gigante pointer-events-none absolute -bottom-8 ${u.numeroClass} ${
                   i % 2 === 1 ? "left-2" : "right-2"
                 }`}
               >
                 {u.n}
               </span>
-              <span className="label-xs relative w-fit rotate-[-1.5deg] border border-current px-3 py-2">
+              <span className={`label-xs relative w-fit rotate-[-1.5deg] border px-3 py-2 ${u.kickerClass}`}>
                 {u.kicker}
               </span>
               <h3 className="display-md relative max-w-[18ch]">{u.titulo}</h3>
               <p className="relative max-w-md text-base opacity-90 lg:text-lg">{u.texto}</p>
               <Link
                 to={u.to}
-                className="label-xs relative inline-flex w-fit items-center gap-2 border border-current px-6 py-4"
+                className={`label-xs relative inline-flex w-fit items-center gap-2 border px-6 py-4 ${u.btnClass}`}
               >
                 {u.cta} <ArrowUpRight className="size-4" />
               </Link>
