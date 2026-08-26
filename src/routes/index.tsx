@@ -7,7 +7,7 @@ import bw3 from "@/assets/bw-3.jpg";
 import uTalleres from "@/assets/universo-talleres.jpg";
 import uKits from "@/assets/universo-kits.jpg";
 import uMateriales from "@/assets/universo-materiales.jpg";
-import uOlfactory from "@/assets/universo-olfactory.jpg";
+import uOlfactoryGaleria from "@/assets/universo-olfactory-galeria.png.asset.json";
 import cutVela from "@/assets/cut-vela.png";
 import cutPigmento from "@/assets/cut-pigmento.png";
 import cutBlotters from "@/assets/cut-blotters.png";
@@ -46,6 +46,9 @@ const universos = [
     to: "/talleres" as const,
     img: uTalleres,
     bg: "bg-tomate text-paper",
+    kickerClass: "border-current",
+    numeroClass: "opacity-15",
+    btnClass: "border-current",
   },
   {
     n: "02",
@@ -57,6 +60,9 @@ const universos = [
     to: "/kits" as const,
     img: uKits,
     bg: "bg-chartreuse text-ink",
+    kickerClass: "border-current",
+    numeroClass: "opacity-15",
+    btnClass: "border-current",
   },
   {
     n: "03",
@@ -68,6 +74,9 @@ const universos = [
     to: "/materiales" as const,
     img: uMateriales,
     bg: "bg-cobalto text-paper",
+    kickerClass: "border-current",
+    numeroClass: "opacity-15",
+    btnClass: "border-current",
   },
   {
     n: "04",
@@ -77,8 +86,11 @@ const universos = [
       "Nuestra biblioteca especializada de fragancias para velas, jabones, home fragrance y otros proyectos.",
     cta: "Explorar fragancias",
     to: "/olfactory" as const,
-    img: uOlfactory,
-    bg: "bg-cobalto text-paper",
+    img: uOlfactoryGaleria.url,
+    bg: "bg-paper text-ink",
+    kickerClass: "border-turquesa bg-turquesa text-ink",
+    numeroClass: "text-rosa/25",
+    btnClass: "border-rosa bg-rosa text-paper",
   },
 ];
 
