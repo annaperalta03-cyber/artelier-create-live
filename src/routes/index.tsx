@@ -7,7 +7,7 @@ import bw3 from "@/assets/bw-3.jpg";
 import uTalleres from "@/assets/universo-talleres.jpg";
 import uKits from "@/assets/universo-kits.jpg";
 import uMateriales from "@/assets/universo-materiales.jpg";
-import uOlfactory from "@/assets/universo-olfactory.jpg";
+import uOlfactoryGaleria from "@/assets/universo-olfactory-galeria.png.asset.json";
 import cutVela from "@/assets/cut-vela.png";
 import cutPigmento from "@/assets/cut-pigmento.png";
 import cutBlotters from "@/assets/cut-blotters.png";
@@ -46,6 +46,9 @@ const universos = [
     to: "/talleres" as const,
     img: uTalleres,
     bg: "bg-tomate text-paper",
+    kickerClass: "border-current",
+    numeroClass: "opacity-15",
+    btnClass: "border-current",
   },
   {
     n: "02",
@@ -57,6 +60,9 @@ const universos = [
     to: "/kits" as const,
     img: uKits,
     bg: "bg-chartreuse text-ink",
+    kickerClass: "border-current",
+    numeroClass: "opacity-15",
+    btnClass: "border-current",
   },
   {
     n: "03",
@@ -68,6 +74,9 @@ const universos = [
     to: "/materiales" as const,
     img: uMateriales,
     bg: "bg-cobalto text-paper",
+    kickerClass: "border-current",
+    numeroClass: "opacity-15",
+    btnClass: "border-current",
   },
   {
     n: "04",
@@ -77,8 +86,11 @@ const universos = [
       "Nuestra biblioteca especializada de fragancias para velas, jabones, home fragrance y otros proyectos.",
     cta: "Explorar fragancias",
     to: "/olfactory" as const,
-    img: uOlfactory,
-    bg: "bg-cobalto text-paper",
+    img: uOlfactoryGaleria.url,
+    bg: "bg-paper text-ink",
+    kickerClass: "border-turquesa bg-turquesa text-ink",
+    numeroClass: "text-rosa/25",
+    btnClass: "border-rosa bg-rosa text-paper",
   },
 ];
 
@@ -209,20 +221,20 @@ function Home() {
             >
               <span
                 aria-hidden
-                className={`numero-gigante pointer-events-none absolute -bottom-8 opacity-15 ${
+                className={`numero-gigante pointer-events-none absolute -bottom-8 ${u.numeroClass} ${
                   i % 2 === 1 ? "left-2" : "right-2"
                 }`}
               >
                 {u.n}
               </span>
-              <span className="label-xs relative w-fit rotate-[-1.5deg] border border-current px-3 py-2">
+              <span className={`label-xs relative w-fit rotate-[-1.5deg] border px-3 py-2 ${u.kickerClass}`}>
                 {u.kicker}
               </span>
               <h3 className="display-md relative max-w-[18ch]">{u.titulo}</h3>
               <p className="relative max-w-md text-base opacity-90 lg:text-lg">{u.texto}</p>
               <Link
                 to={u.to}
-                className="label-xs relative inline-flex w-fit items-center gap-2 border border-current px-6 py-4"
+                className={`label-xs relative inline-flex w-fit items-center gap-2 border px-6 py-4 ${u.btnClass}`}
               >
                 {u.cta} <ArrowUpRight className="size-4" />
               </Link>
