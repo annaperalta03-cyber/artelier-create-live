@@ -36,9 +36,19 @@ function FraganciaCard({ f }: { f: Fragancia }) {
 
   return (
     <article className="flex flex-col border border-ink/15 bg-white p-6 shadow-sm">
+      <img
+        src={f.imagen}
+        alt={`Afiche de la fragancia ${f.nombre} — Artelier Olfactory`}
+        loading="lazy"
+        width={1080}
+        height={1440}
+        className="mb-6 w-full border border-ink/10 object-cover"
+        style={{ aspectRatio: "3 / 4" }}
+      />
       <p className="label-xs text-cobalto">{f.familia}</p>
       <h3 className="mt-3 font-display text-3xl font-black uppercase leading-none">{f.nombre}</h3>
       <p className="mt-4 text-ink/70">{f.descripcion}</p>
+
 
       <dl className="mt-5 space-y-1 text-sm text-ink/60">
         <div className="flex gap-2">

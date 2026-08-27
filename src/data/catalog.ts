@@ -1,4 +1,16 @@
+import imgUnderCypress from "@/assets/fragancias/under-the-cypress.png.asset.json";
+import imgWinterWoods from "@/assets/fragancias/winter-woods.png.asset.json";
+import imgWildflower from "@/assets/fragancias/wildflower-season.png.asset.json";
+import imgSundayOctober from "@/assets/fragancias/sunday-in-october.png.asset.json";
+import imgCleanSlate from "@/assets/fragancias/clean-slate.png.asset.json";
+import imgDesertWater from "@/assets/fragancias/desert-water.png.asset.json";
+import imgRoseGlasses from "@/assets/fragancias/rose-colored-glasses.webp.asset.json";
+import imgCapri from "@/assets/fragancias/breakfast-in-capri.webp.asset.json";
+import imgMakeAWish from "@/assets/fragancias/make-a-wish.webp.asset.json";
+import imgCabana from "@/assets/fragancias/cabana-no-5.webp.asset.json";
+
 export type Acento = "cobalto" | "tomate" | "chartreuse" | "rosa" | "ink";
+
 
 export type Producto = {
   id: string;
@@ -467,7 +479,7 @@ export const fragancias: Fragancia[] = [
   { id: "f-3", slug: "wildflower-season", nombre: "Wildflower Season", familia: "Floral silvestre", coleccion: "garden", descripcion: "Un campo entero en flor: margaritas, lavanda y hierba tibia.", salida: "Hierba verde, cítrico", corazon: "Margarita, lavanda, jazmín", fondo: "Almizcle blanco", usos: "Velas · Jabones · Body", tamanos: tamanosBase, acento: "chartreuse", imagen: imgWildflower.url },
   { id: "f-4", slug: "sunday-in-october", nombre: "Sunday in October", familia: "Gourmand especiado", coleccion: "pantry", descripcion: "Hojas secas, canela y ese otoño que en el Caribe solo existe en velas.", salida: "Manzana, canela", corazon: "Calabaza, nuez moscada", fondo: "Azúcar morena, maple", usos: "Velas · Wax melts", tamanos: tamanosBase, acento: "tomate", imagen: imgSundayOctober.url },
   { id: "f-5", slug: "clean-slate", nombre: "Clean Slate", familia: "Fresco mineral", coleccion: "coast", descripcion: "Bambú, agua y piedra: empezar de nuevo, pero con estilo.", salida: "Bambú, limón", corazon: "Té verde, loto", fondo: "Musgo blanco, mineral", usos: "Velas · Room spray · Jabones", tamanos: tamanosBase, acento: "cobalto", imagen: imgCleanSlate.url },
-  { id: "f-6", slug: "desert-water", nombre: "Desert Water", familia: "Verde acuático", coleccion: "coast", descripcion: "Agave, agua de alberca y sol seco sobre arcilla.", salida: "Aloe, pepino", corazon: "Agave, cactus", fondo: "Ámbar suave, cedro", usos: "Velas · Body · Jabones", tamanos: tamanosBase, acento: "turquesa" as Acento, imagen: imgDesertWater.url },
+  { id: "f-6", slug: "desert-water", nombre: "Desert Water", familia: "Verde acuático", coleccion: "coast", descripcion: "Agave, agua de alberca y sol seco sobre arcilla.", salida: "Aloe, pepino", corazon: "Agave, cactus", fondo: "Ámbar suave, cedro", usos: "Velas · Body · Jabones", tamanos: tamanosBase, acento: "cobalto", imagen: imgDesertWater.url },
   { id: "f-7", slug: "rose-colored-glasses", nombre: "Rose Colored Glasses", familia: "Floral rosado", coleccion: "garden", descripcion: "Peonía y rosa vistas con optimismo descarado.", salida: "Pera, lichi", corazon: "Peonía, rosa", fondo: "Almizcle, madera clara", usos: "Velas · Perfume · Body", tamanos: tamanosBase, acento: "rosa", imagen: imgRoseGlasses.url },
   { id: "f-8", slug: "breakfast-in-capri", nombre: "Breakfast in Capri", familia: "Cítrico solar", coleccion: "orchard", descripcion: "Limones amalfitanos, café recién colado y brisa de mar.", salida: "Limón, bergamota", corazon: "Azahar, café", fondo: "Almizcle, vainilla suave", usos: "Velas · Room spray · Jabones", tamanos: tamanosBase, acento: "cobalto", imagen: imgCapri.url },
   { id: "f-9", slug: "make-a-wish", nombre: "Make a Wish", familia: "Gourmand cremoso", coleccion: "pantry", descripcion: "Bizcocho de vainilla, buttercream y una vela recién apagada.", salida: "Azúcar, coco", corazon: "Buttercream, bizcocho", fondo: "Vainilla, tonka", usos: "Velas · Wax melts · Jabones", tamanos: tamanosBase, acento: "rosa", imagen: imgMakeAWish.url },
