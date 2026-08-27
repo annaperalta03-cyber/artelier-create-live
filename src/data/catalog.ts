@@ -1,4 +1,16 @@
+import imgUnderCypress from "@/assets/fragancias/under-the-cypress.png.asset.json";
+import imgWinterWoods from "@/assets/fragancias/winter-woods.png.asset.json";
+import imgWildflower from "@/assets/fragancias/wildflower-season.png.asset.json";
+import imgSundayOctober from "@/assets/fragancias/sunday-in-october.png.asset.json";
+import imgCleanSlate from "@/assets/fragancias/clean-slate.png.asset.json";
+import imgDesertWater from "@/assets/fragancias/desert-water.png.asset.json";
+import imgRoseGlasses from "@/assets/fragancias/rose-colored-glasses.webp.asset.json";
+import imgCapri from "@/assets/fragancias/breakfast-in-capri.webp.asset.json";
+import imgMakeAWish from "@/assets/fragancias/make-a-wish.webp.asset.json";
+import imgCabana from "@/assets/fragancias/cabana-no-5.webp.asset.json";
+
 export type Acento = "cobalto" | "tomate" | "chartreuse" | "rosa" | "ink";
+
 
 export type Producto = {
   id: string;
