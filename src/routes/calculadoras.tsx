@@ -216,7 +216,7 @@ function CalcJabon() {
 
       <div className="mt-8 space-y-3">
         {filas.map((f, i) => (
-          <div key={i} className="flex gap-2">
+          <div key={i} className="flex flex-wrap gap-2 sm:flex-nowrap">
             <select
               value={f.id}
               onChange={(e) => actualizar(i, { id: e.target.value })}
@@ -233,13 +233,13 @@ function CalcJabon() {
               min={0}
               value={f.gramos}
               onChange={(e) => actualizar(i, { gramos: Number(e.target.value) })}
-              className={`${inputCls} w-28`}
+              className={`${inputCls} w-24 sm:w-28`}
               aria-label="Gramos"
             />
             <button
               type="button"
               onClick={() => setFilas((prev) => prev.filter((_, idx) => idx !== i))}
-              className="label-xs border border-ink px-3 hover:bg-tomate hover:text-paper"
+              className="label-xs min-h-11 border border-ink px-4 hover:bg-tomate hover:text-paper"
               aria-label="Quitar aceite"
             >
               ×
@@ -308,7 +308,7 @@ function CalcJabon() {
 /* ---------- piezas compartidas ---------- */
 
 const inputCls =
-  "label-xs border border-ink bg-paper px-3 py-3 text-ink outline-none focus:bg-chartreuse/30";
+  "label-xs min-h-11 min-w-0 border border-ink bg-paper px-3 py-3 text-ink focus:bg-chartreuse/30";
 
 function Campo({ label, children }: { label: string; children: React.ReactNode }) {
   return (
