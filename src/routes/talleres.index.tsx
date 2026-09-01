@@ -37,13 +37,14 @@ function TalleresPage() {
         </p>
       </header>
 
-      <div className="sticky top-[104px] z-30 flex flex-wrap gap-2 border-b border-ink bg-paper px-4 py-4 lg:px-8">
+      <div className="sticky top-0 z-30 flex flex-wrap gap-2 border-b border-ink bg-paper px-4 py-4 lg:px-8">
         {filtrosTalleres.map((f) => (
           <button
             key={f}
             type="button"
             onClick={() => setFiltro(f)}
-            className={`label-xs border border-ink px-4 py-2 ${
+            aria-pressed={filtro === f}
+            className={`label-xs min-h-11 border border-ink px-4 py-2 ${
               filtro === f ? "bg-ink text-paper" : "hover:bg-chartreuse"
             }`}
           >
