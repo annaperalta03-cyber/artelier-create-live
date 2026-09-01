@@ -81,6 +81,11 @@ function TalleresPage() {
             </div>
           </Link>
         ))}
+        {lista.length === 0 && (
+          <p className="col-span-full bg-paper p-8 text-lg">
+            No hay talleres con ese filtro ahora mismo. Prueba con otra categoría o escríbenos.
+          </p>
+        )}
       </section>
     </>
   );

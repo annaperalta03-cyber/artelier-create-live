@@ -49,7 +49,8 @@ function KitsPage() {
             key={c}
             type="button"
             onClick={() => setCat(c)}
-            className={`label-xs border border-ink px-4 py-2 ${
+            aria-pressed={cat === c}
+            className={`label-xs min-h-11 border border-ink px-4 py-2 ${
               cat === c ? "bg-ink text-paper" : "hover:bg-chartreuse"
             }`}
           >
@@ -62,6 +63,12 @@ function KitsPage() {
         {lista.map((k) => (
           <ProductCard key={k.id} producto={k} tipo="kit" />
         ))}
+        {lista.length === 0 && (
+          <p className="col-span-full border border-ink bg-secondary p-8 text-lg">
+            No hay resultados en esta categoría por ahora. Prueba con otra o escríbenos y lo
+            buscamos por ti.
+          </p>
+        )}
       </section>
 
       <section className="border-y border-ink">

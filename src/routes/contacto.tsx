@@ -34,7 +34,7 @@ const tipos = [
 ];
 
 const campo =
-  "w-full border border-ink bg-card px-4 py-3 focus:border-cobalto focus:outline-none";
+  "w-full border border-ink bg-card px-4 py-3 focus:border-cobalto";
 
 function ContactoPage() {
   return (
@@ -62,7 +62,12 @@ function ContactoPage() {
             "",
             `${data.get("mensaje")}`,
           ].join("\n");
-          window.open(waLink(mensaje), "_blank");
+          const url = waLink(mensaje);
+          const ventana = window.open(url, "_blank", "noopener");
+          if (!ventana) {
+            window.location.href = url;
+            return;
+          }
           toast.success("Vamos por WhatsApp", {
             description: "Abrimos la conversación con tu idea ya escrita.",
           });
