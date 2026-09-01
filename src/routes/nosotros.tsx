@@ -30,7 +30,7 @@ function NosotrosPage() {
       </header>
 
       <section className="grid gap-10 border-b border-ink px-4 py-14 lg:grid-cols-2 lg:px-8">
-        <div className="space-y-5 text-lg leading-relaxed">
+        <div className="max-w-prose space-y-5 text-lg leading-relaxed">
           <p>
             Artelier nació como una extensión de Apothecare, después de ver algo muy simple: cuando
             una persona hace algo con sus manos, cambia de humor.
@@ -64,7 +64,7 @@ function NosotrosPage() {
           ["Queremos", "Que salgas con algo hecho por ti"],
         ].map(([k, v]) => (
           <div key={k} className="bg-paper p-8">
-            <p className="label-xs opacity-50">{k}</p>
+            <p className="label-xs text-muted-foreground">{k}</p>
             <p className="mt-3 font-display text-2xl font-black uppercase leading-tight">{v}</p>
           </div>
         ))}
