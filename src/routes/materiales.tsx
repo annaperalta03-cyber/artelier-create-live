@@ -49,7 +49,8 @@ function MaterialesPage() {
             onClick={() =>
               navigate({ search: c === "TODOS" ? {} : { cat: c }, resetScroll: false })
             }
-            className={`label-xs border border-ink px-4 py-2 ${
+            aria-pressed={activa === c}
+            className={`label-xs min-h-11 border border-ink px-4 py-2 ${
               activa === c ? "bg-ink text-paper" : "hover:bg-chartreuse"
             }`}
           >
@@ -62,6 +63,12 @@ function MaterialesPage() {
         {lista.map((m) => (
           <ProductCard key={m.id} producto={m} tipo="material" />
         ))}
+        {lista.length === 0 && (
+          <p className="col-span-full border border-ink bg-secondary p-8 text-lg">
+            No hay resultados en esta categoría por ahora. Prueba con otra o escríbenos y lo
+            buscamos por ti.
+          </p>
+        )}
       </section>
 
       <section className="mx-4 mb-14 border border-ink bg-chartreuse p-8 lg:mx-8 lg:p-12">

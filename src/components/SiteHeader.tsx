@@ -65,22 +65,31 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-1">
-          <Link to="/materiales" aria-label="Buscar materiales" className="p-2 hover:text-tomate">
-            <Search className="size-5" />
+          <Link
+            to="/materiales"
+            aria-label="Explorar catálogo de materiales"
+            title="Explorar materiales"
+            className="flex size-11 items-center justify-center hover:text-tomate"
+          >
+            <Search className="size-5" aria-hidden />
           </Link>
           <a
             href={waLink("Hola Artelier 👋 tengo una pregunta.")}
             target="_blank"
             rel="noreferrer"
             aria-label="Escríbenos por WhatsApp"
-            className="p-2 hover:text-tomate"
+            className="flex size-11 items-center justify-center hover:text-tomate"
           >
             <MessageCircle className="size-5" />
           </a>
-          <Link to="/carrito" aria-label="Ver carrito" className="relative p-2 hover:text-tomate">
+          <Link
+            to="/carrito"
+            aria-label="Ver carrito"
+            className="relative flex size-11 items-center justify-center hover:text-tomate"
+          >
             <ShoppingBag className="size-5" />
             {hidratado && count > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center bg-tomate text-[10px] font-bold text-paper">
+              <span className="absolute -right-0.5 -top-0.5 flex size-5 items-center justify-center bg-tomate text-[11px] font-bold text-paper">
                 {count}
               </span>
             )}
@@ -88,8 +97,10 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setAbierto((v) => !v)}
-            aria-label="Abrir menú"
-            className="p-2 xl:hidden"
+            aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={abierto}
+            aria-controls="menu-movil"
+            className="flex size-11 items-center justify-center xl:hidden"
           >
             {abierto ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
@@ -97,7 +108,7 @@ export function SiteHeader() {
       </div>
 
       {abierto && (
-        <div className="border-b border-ink bg-paper px-4 pb-6 pt-2 xl:hidden">
+        <div id="menu-movil" className="border-b border-ink bg-paper px-4 pb-6 pt-2 xl:hidden">
           {nav.map((item) => (
             <Link
               key={item.to}

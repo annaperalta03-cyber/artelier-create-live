@@ -56,7 +56,7 @@ export function ProductCard({ producto, tipo }: Props) {
   return (
     <article
       className={cn(
-        "group relative flex flex-col border border-ink/20 bg-card",
+        "group relative flex flex-col border border-ink/25 bg-card",
         producto.span === "ancho" && "sm:col-span-2",
         producto.span === "alto" && "sm:row-span-2",
       )}
@@ -85,7 +85,7 @@ export function ProductCard({ producto, tipo }: Props) {
         <button
           type="button"
           onClick={agregar}
-          className="label-xs absolute inset-x-0 bottom-0 hidden bg-ink py-4 text-paper transition-transform duration-200 sm:block sm:translate-y-full group-hover:sm:translate-y-0"
+          className="label-xs absolute inset-x-0 bottom-0 hidden bg-ink py-4 text-paper transition-transform duration-200 sm:block sm:translate-y-full group-hover:sm:translate-y-0 focus-visible:sm:translate-y-0"
         >
           Agregar al carrito
         </button>
@@ -100,7 +100,7 @@ export function ProductCard({ producto, tipo }: Props) {
           <span className="font-display text-lg font-bold">{rd(producto.precio)}</span>
         </div>
         <p className="text-sm text-muted-foreground">{producto.descripcion}</p>
-        {producto.medida && <p className="label-xs opacity-70">{producto.medida}</p>}
+        {producto.medida && <p className="label-xs text-muted-foreground">{producto.medida}</p>}
         {producto.idealPara && (
           <p className="label-xs inline-flex w-fit border border-ink px-2 py-1">
             Ideal para: {producto.idealPara}

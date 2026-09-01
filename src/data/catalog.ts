@@ -8,6 +8,7 @@ import imgRoseGlasses from "@/assets/fragancias/rose-colored-glasses.webp.asset.
 import imgCapri from "@/assets/fragancias/breakfast-in-capri.webp.asset.json";
 import imgMakeAWish from "@/assets/fragancias/make-a-wish.webp.asset.json";
 import imgCabana from "@/assets/fragancias/cabana-no-5.webp.asset.json";
+import imgSecretGarden from "@/assets/fragancias/the-secret-garden.png.asset.json";
 
 export type Acento = "cobalto" | "tomate" | "chartreuse" | "rosa" | "ink";
 
@@ -484,6 +485,7 @@ export const fragancias: Fragancia[] = [
   { id: "f-8", slug: "breakfast-in-capri", nombre: "Breakfast in Capri", familia: "Cítrico solar", coleccion: "orchard", descripcion: "Limones amalfitanos, café recién colado y brisa de mar.", salida: "Limón, bergamota", corazon: "Azahar, café", fondo: "Almizcle, vainilla suave", usos: "Velas · Room spray · Jabones", tamanos: tamanosBase, acento: "cobalto", imagen: imgCapri.url },
   { id: "f-9", slug: "make-a-wish", nombre: "Make a Wish", familia: "Gourmand cremoso", coleccion: "pantry", descripcion: "Bizcocho de vainilla, buttercream y una vela recién apagada.", salida: "Azúcar, coco", corazon: "Buttercream, bizcocho", fondo: "Vainilla, tonka", usos: "Velas · Wax melts · Jabones", tamanos: tamanosBase, acento: "rosa", imagen: imgMakeAWish.url },
   { id: "f-10", slug: "cabana-no-5", nombre: "Cabana No. 5", familia: "Tropical fresco", coleccion: "coast", descripcion: "Coco, lima y toalla limpia junto a la piscina.", salida: "Lima, hoja de palma", corazon: "Coco, flor blanca", fondo: "Sándalo, almizcle", usos: "Velas · Body · Aceites", tamanos: tamanosBase, acento: "chartreuse", imagen: imgCabana.url },
+  { id: "f-11", slug: "the-secret-garden", nombre: "The Secret Garden", familia: "Verde floral", coleccion: "garden", descripcion: "Portón entreabierto, higos maduros y follaje húmedo después de la lluvia.", salida: "Hoja de higuera, pera verde", corazon: "Rosa de jardín, geranio", fondo: "Musgo, vetiver suave", usos: "Velas · Jabones · Room spray", tamanos: tamanosBase, acento: "chartreuse", imagen: imgSecretGarden.url },
 ];
 
 

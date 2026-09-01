@@ -14,6 +14,7 @@ export const Route = createFileRoute("/checkout")({
         content:
           "Deja tus datos, registramos tu pedido y luego lo confirmas por WhatsApp. Sin pagos en línea.",
       },
+      { name: "robots", content: "noindex" },
       { property: "og:title", content: "Realizar pedido — ARTELIER" },
       {
         property: "og:description",
@@ -24,7 +25,7 @@ export const Route = createFileRoute("/checkout")({
   component: CheckoutPage,
 });
 
-const campo = "w-full border border-ink bg-card px-4 py-3 focus:border-cobalto focus:outline-none";
+const campo = "w-full border border-ink bg-card px-4 py-3 focus:border-cobalto";
 
 function CheckoutPage() {
   const { items, subtotal, clear } = useCart();

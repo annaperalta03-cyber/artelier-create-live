@@ -19,7 +19,7 @@ export function Newsletter() {
           <h2 className="display-lg">
             Entra al club<br />de los que sí crean.
           </h2>
-          <p className="mt-5 max-w-lg text-lg text-paper/70">
+          <p className="mt-5 max-w-lg max-w-prose text-lg text-paper/80">
             Talleres nuevos, kits limitados y excusas para desconectarte del celular, directo a
             tu correo.
           </p>
@@ -28,8 +28,9 @@ export function Newsletter() {
           onSubmit={(e) => {
             e.preventDefault();
             const input = e.currentTarget.elements.namedItem("email") as HTMLInputElement;
-            toast.success("Ya estás dentro", {
-              description: "Te escribiremos solo cuando valga la pena.",
+            toast.success("Anotado en este dispositivo", {
+              description:
+                "Todavía no tenemos el envío de correos activo. Escríbenos por WhatsApp y te avisamos de todo.",
             });
             input.value = "";
           }}
@@ -40,7 +41,7 @@ export function Newsletter() {
             type="email"
             required
             placeholder="tu@correo.com"
-            className="w-full border border-paper/40 bg-transparent px-4 py-4 text-paper placeholder:text-paper/40 focus:border-chartreuse focus:outline-none"
+            className="w-full border border-paper/40 bg-transparent px-4 py-4 text-paper placeholder:text-paper/40 focus:border-chartreuse"
           />
           <button type="submit" className="label-xs bg-chartreuse px-6 py-4 text-ink">
             Quiero entrar

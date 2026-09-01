@@ -11,6 +11,7 @@ export const Route = createFileRoute("/carrito")({
         name: "description",
         content: "Revisa tus kits, materiales y fragancias antes de realizar tu pedido.",
       },
+      { name: "robots", content: "noindex" },
       { property: "og:title", content: "Mi carrito — ARTELIER" },
       { property: "og:description", content: "Kits, materiales y fragancias en una sola orden." },
     ],
