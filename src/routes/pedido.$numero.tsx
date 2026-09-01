@@ -19,10 +19,41 @@ export const Route = createFileRoute("/pedido/$numero")({
 function PedidoPage() {
   const { numero } = Route.useParams();
   const [pedido, setPedido] = useState<Pedido | undefined>(undefined);
+  const [buscado, setBuscado] = useState(false);
 
   useEffect(() => {
     setPedido(buscarPedido(numero));
+    setBuscado(true);
   }, [numero]);
+
+  if (buscado && !pedido) {
+    return (
+      <section className="px-4 py-16 lg:px-8 lg:py-24">
+        <h1 className="display-xl">No encontramos este pedido</h1>
+        <p className="mt-6 max-w-xl text-lg">
+          El pedido #{numero} no está guardado en este navegador. Los pedidos se guardan en el
+          dispositivo donde se hicieron. Si lo hiciste en otro teléfono o computadora, escríbenos
+          por WhatsApp con el número y lo verificamos.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <a
+            href={waLink(`Hola Artelier 👋 quiero verificar el pedido #${numero}.`)}
+            target="_blank"
+            rel="noreferrer"
+            className="label-xs bg-chartreuse px-8 py-6 text-ink"
+          >
+            Verificar por WhatsApp
+          </a>
+          <Link to="/carrito" className="label-xs border border-ink px-8 py-6">
+            Ver mi carrito
+          </Link>
+          <Link to="/kits" className="label-xs border border-ink px-8 py-6">
+            Seguir explorando
+          </Link>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="px-4 py-16 lg:px-8 lg:py-24">
