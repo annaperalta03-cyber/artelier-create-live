@@ -37,7 +37,7 @@ function TalleresPage() {
         </p>
       </header>
 
-      <div className="sticky top-0 z-30 flex flex-wrap gap-2 border-b border-ink bg-paper px-4 py-4 lg:px-8">
+      <div className="sticky top-[var(--header-h)] z-30 flex flex-wrap gap-2 border-b border-ink bg-paper px-4 py-4 lg:px-8">
         {filtrosTalleres.map((f) => (
           <button
             key={f}
