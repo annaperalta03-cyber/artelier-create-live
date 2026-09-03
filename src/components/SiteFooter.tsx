@@ -92,10 +92,10 @@ export function SiteFooter() {
           <div className="space-y-3">
             <p className="label-xs mb-3 opacity-50">La comunidad</p>
             <a href={site.instagram} target="_blank" rel="noreferrer" className="block text-sm hover:text-tomate">
-              Síguenos en Instagram
+              Instagram @elartelier.rd
             </a>
             <a href={site.comunidad} target="_blank" rel="noreferrer" className="block text-sm hover:text-tomate">
-              Entra al grupo de WhatsApp de la comunidad Artelier — ahí avisamos primero.
+              WhatsApp 829-906-3060 — escríbenos y te avisamos primero.
             </a>
             <a
               href={waLink("Hola Artelier 👋")}
