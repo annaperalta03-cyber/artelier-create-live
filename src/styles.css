@@ -51,6 +51,8 @@
 
 :root {
   --radius: 0px;
+  --header-h: 116px;
+
 
   --ink: oklch(0.19 0 0);
   --paper: oklch(0.958 0.019 90);
@@ -179,6 +181,12 @@
 @media (max-width: 640px) {
   .marquee-track {
     animation-duration: calc(var(--marquee-duration, 40s) * 1.6);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 132px;
   }
 }
 

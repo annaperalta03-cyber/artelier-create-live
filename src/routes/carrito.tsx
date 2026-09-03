@@ -60,7 +60,7 @@ function CarritoPage() {
                     type="button"
                     aria-label="Quitar uno"
                     onClick={() => setCantidad(i.id, i.cantidad - 1, i.variante)}
-                    className="p-3"
+                    className="flex size-11 items-center justify-center hover:bg-chartreuse/40"
                   >
                     <Minus className="size-4" />
                   </button>
@@ -69,7 +69,7 @@ function CarritoPage() {
                     type="button"
                     aria-label="Agregar uno"
                     onClick={() => setCantidad(i.id, i.cantidad + 1, i.variante)}
-                    className="p-3"
+                    className="flex size-11 items-center justify-center hover:bg-chartreuse/40"
                   >
                     <Plus className="size-4" />
                   </button>
@@ -81,7 +81,7 @@ function CarritoPage() {
                   type="button"
                   aria-label="Eliminar del carrito"
                   onClick={() => remove(i.id, i.variante)}
-                  className="p-2 text-muted-foreground hover:text-tomate"
+                  className="flex size-11 shrink-0 items-center justify-center text-ink/70 hover:text-tomate"
                 >
                   <Trash2 className="size-4" />
                 </button>
