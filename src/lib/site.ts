@@ -2,9 +2,11 @@ export const site = {
   nombre: "ARTELIER",
   submarca: "by Apothecare",
   ciudad: "Santo Domingo, República Dominicana",
-  whatsapp: "18090000000",
-  instagram: "https://instagram.com",
-  comunidad: "https://chat.whatsapp.com",
+  whatsapp: "18299063060",
+  instagram: "https://www.instagram.com/elartelier.rd/",
+  comunidad:
+    "https://wa.me/18299063060?text=" +
+    encodeURIComponent("Hola Artelier 👋 quiero entrar a la comunidad."),
   marqueeTop: "ENVÍO GRATIS EN SANTO DOMINGO DESDE RD$3,000",
   marqueeTopLink: "/kits",
   marqueeBadges: [
