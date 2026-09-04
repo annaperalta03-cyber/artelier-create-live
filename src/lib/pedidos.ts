@@ -60,22 +60,36 @@ export function buscarPedido(numero: string) {
   return leerPedidos().find((p) => p.numero === numero);
 }
 
+const money = (n: number) => `RD$${n.toLocaleString("es-DO", { maximumFractionDigits: 0 })}`;
+
 export function mensajeWhatsApp(p: Pedido) {
-  const lineas = p.items.map(
-    (i) => `• ${i.nombre}${i.variante ? ` (${i.variante})` : ""} — ${i.cantidad} ud.`,
-  );
+  const lineas = p.items.flatMap((i) => [
+    `• ${i.nombre}${i.variante ? ` — ${i.variante}` : ""}`,
+    `   ${i.cantidad} x ${money(i.precio)} = ${money(i.precio * i.cantidad)}`,
+  ]);
+  const entregaLineas = [
+    `Entrega: ${p.entrega}`,
+    ...(p.direccion ? [`Dirección: ${p.direccion}`] : []),
+    ...(p.sector ? [`Sector: ${p.sector}`] : []),
+    ...(p.ciudad ? [`Ciudad: ${p.ciudad}`] : []),
+  ];
   return [
     "Hola Artelier 👋",
     "",
     `Acabo de realizar el pedido #${p.numero}.`,
     "",
-    "Mi pedido:",
+    "MI PEDIDO",
     ...lineas,
     "",
-    `Subtotal: RD$${p.subtotal.toLocaleString("es-DO")}`,
+    `Subtotal: ${money(p.subtotal)}`,
+    `Total a confirmar: ${money(p.subtotal)} (+ delivery si aplica)`,
+    "",
+    "MIS DATOS",
     `Nombre: ${p.cliente}`,
-    `Entrega: ${p.entrega}`,
-    `Sector: ${p.sector ?? "—"}`,
+    `WhatsApp: ${p.whatsapp}`,
+    ...(p.email ? [`Email: ${p.email}`] : []),
+    ...entregaLineas,
+    ...(p.notas ? ["", `Notas: ${p.notas}`] : []),
     "",
     "Quedo pendiente para confirmar disponibilidad y forma de pago.",
   ].join("\n");

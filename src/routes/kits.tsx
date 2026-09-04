@@ -35,41 +35,49 @@ function KitsPage() {
 
   return (
     <>
-      <header className="border-b border-ink px-4 py-14 lg:px-8 lg:py-20">
+      <header className="border-b border-ink px-4 py-16 lg:px-8 lg:py-24">
         <p className="label-xs">02 · Kits</p>
-        <h1 className="display-xl mt-4">Artelier,<br />pero en casa.</h1>
-        <p className="mt-6 max-w-xl text-lg">
-          Todo medido, todo incluido. Tú solo pon la mesa y las ganas.
+        <h1 className="display-xl mt-5">Artelier,<br />pero en casa.</h1>
+        <p className="mt-8 max-w-[34ch] text-2xl leading-[1.15] lg:text-3xl">
+          Todo lo que necesitas. Cero excusas para no crear.
+        </p>
+        <p className="mt-6 max-w-[46ch] text-lg">
+          Todo medido, todo incluido. Tú solo pon la mesa y las ganas: abre la caja, sigue la
+          tarjeta de fórmula y en una tarde ya tienes algo hecho por ti.
         </p>
       </header>
 
-      <div className="flex flex-wrap gap-2 border-b border-ink px-4 py-4 lg:px-8">
-        {categoriasKits.map((c) => (
-          <button
-            key={c}
-            type="button"
-            onClick={() => setCat(c)}
-            aria-pressed={cat === c}
-            className={`label-xs min-h-11 border border-ink px-4 py-2 ${
-              cat === c ? "bg-ink text-paper" : "hover:bg-chartreuse"
-            }`}
-          >
-            {c}
-          </button>
-        ))}
+      <div className="border-b border-ink px-4 py-6 lg:px-8">
+        <p className="label-xs">Categoría</p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          {categoriasKits.map((c) => (
+            <button
+              key={c}
+              type="button"
+              onClick={() => setCat(c)}
+              aria-pressed={cat === c}
+              className={`label-xs min-h-13 border-2 border-ink px-6 py-3 transition-colors ${
+                cat === c ? "bg-ink text-paper" : "bg-paper hover:bg-chartreuse active:bg-chartreuse"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <section className="grid auto-rows-min gap-4 px-4 py-10 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
+      <section className="grid auto-rows-min gap-6 px-4 py-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 lg:px-8 lg:py-20">
         {lista.map((k) => (
           <ProductCard key={k.id} producto={k} tipo="kit" />
         ))}
         {lista.length === 0 && (
-          <p className="col-span-full border border-ink bg-secondary p-8 text-lg">
+          <p className="col-span-full max-w-[60ch] border border-ink bg-secondary p-8 text-lg">
             No hay resultados en esta categoría por ahora. Prueba con otra o escríbenos y lo
             buscamos por ti.
           </p>
         )}
       </section>
+
 
       <section className="border-y border-ink">
         <h2 className="display-lg px-4 py-10 lg:px-8">Abre → Crea → Experimenta → Disfruta</h2>
