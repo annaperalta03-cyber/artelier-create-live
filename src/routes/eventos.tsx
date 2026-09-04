@@ -141,27 +141,70 @@ function EventosPage() {
       </section>
 
       <section className="border-b border-ink">
-        <h2 className="display-lg px-4 py-10 lg:px-8">Cosas que ya hemos hecho.</h2>
-        <div className="grid gap-px border-t border-ink bg-ink/20 sm:grid-cols-2 lg:grid-cols-3">
-          {ejemplos.map((e) => (
-            <div key={e.t} className={`p-10 ${e.bg}`}>
-              <p className="display-md max-w-[14ch]">{e.t}</p>
-            </div>
+        <div className="flex flex-wrap items-end justify-between gap-4 px-4 py-10 lg:px-8">
+          <h2 className="display-lg">Cosas que ya hemos hecho.</h2>
+          <div className="flex flex-wrap gap-2">
+            {otros.map((o) => (
+              <span key={o} className="etiqueta -rotate-1">
+                {o}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="grid gap-px border-t border-ink bg-ink/20 sm:grid-cols-2">
+          {experiencias.map((e) => (
+            <article key={e.t} className={`group relative overflow-hidden ${e.bg}`}>
+              <img
+                src={e.img}
+                alt={e.alt}
+                loading="lazy"
+                width={1200}
+                height={912}
+                className="h-56 w-full object-cover lg:absolute lg:inset-0 lg:h-full lg:opacity-0 lg:transition-opacity lg:duration-500 lg:group-hover:opacity-100 lg:group-focus-within:opacity-100"
+              />
+              <div className="relative p-8 lg:min-h-72 lg:bg-current/0 lg:p-10">
+                <span className="pointer-events-none absolute inset-0 hidden bg-ink/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100 lg:block" />
+                <p className="relative display-md max-w-[14ch] lg:group-hover:text-paper lg:group-focus-within:text-paper">
+                  {e.t}
+                </p>
+                <p className="relative mt-4 max-w-prose text-base lg:group-hover:text-paper lg:group-focus-within:text-paper">
+                  {e.p}
+                </p>
+                <Link
+                  to="/contacto"
+                  className="label-xs relative mt-6 inline-block border-2 border-current px-5 py-3 lg:group-hover:text-paper lg:group-focus-within:text-paper"
+                >
+                  Cotizar esta experiencia
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="border-b border-ink px-4 py-14 lg:px-8">
-        <h2 className="display-lg">Cómo funciona.</h2>
-        <ol className="mt-8 grid gap-px bg-ink/20 sm:grid-cols-2 lg:grid-cols-3">
-          {proceso.map((p, i) => (
-            <li key={p} className="bg-paper p-8">
-              <span className="font-display text-5xl font-black text-tomate">0{i + 1}</span>
-              <p className="mt-3 font-display text-xl font-bold uppercase leading-tight">{p}</p>
+      <section className="border-b border-ink px-4 py-14 lg:px-8 lg:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="display-lg">Cómo funciona.</h2>
+          <p className="max-w-md text-base opacity-70">
+            Tres pasos y nosotros nos encargamos de todo lo demás.
+          </p>
+        </div>
+        <ol className="mt-10 grid gap-px bg-ink/20 lg:grid-cols-3">
+          {proceso.map((p) => (
+            <li key={p.n} className="relative bg-paper p-8 lg:p-10">
+              <span className="pointer-events-none absolute right-4 top-2 font-display text-7xl font-black text-ink/10">
+                {p.n}
+              </span>
+              <p className="label-xs text-tomate">Paso {p.n}</p>
+              <h3 className="mt-3 max-w-[20ch] font-display text-2xl font-bold uppercase leading-tight">
+                {p.t}
+              </h3>
+              <p className="mt-4 max-w-prose text-base">{p.p}</p>
             </li>
           ))}
         </ol>
       </section>
+
 
       <section className="bg-ink px-4 py-16 text-paper lg:px-8 lg:py-24">
         <h2 className="display-lg">Tu evento,<br />pero más interesante.</h2>
