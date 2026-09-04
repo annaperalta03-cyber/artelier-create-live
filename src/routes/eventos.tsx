@@ -162,7 +162,7 @@ function EventosPage() {
                 height={912}
                 className="h-56 w-full object-cover lg:absolute lg:inset-0 lg:h-full lg:opacity-0 lg:transition-opacity lg:duration-500 lg:group-hover:opacity-100 lg:group-focus-within:opacity-100"
               />
-              <div className="relative p-8 lg:min-h-72 lg:bg-current/0 lg:p-10">
+              <div className="relative p-8 lg:min-h-72 lg:p-10">
                 <span className="pointer-events-none absolute inset-0 hidden bg-ink/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100 lg:block" />
                 <p className="relative display-md max-w-[14ch] lg:group-hover:text-paper lg:group-focus-within:text-paper">
                   {e.t}
