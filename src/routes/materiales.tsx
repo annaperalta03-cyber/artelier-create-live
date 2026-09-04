@@ -69,7 +69,7 @@ function MaterialesPage() {
   return (
     <>
       <header className="border-b border-ink">
-        <div className="grid items-end lg:grid-cols-[1fr_1.1fr]">
+        <div className="grid lg:grid-cols-[1.05fr_1fr]">
           <div className="px-4 py-14 lg:px-8 lg:py-20">
             <p className="label-xs">03 · Materiales</p>
             <h1 className="display-xl mt-4">
@@ -88,7 +88,7 @@ function MaterialesPage() {
               alt="Mesa de trabajo con cera, fragancias, pigmentos, moldes, frascos, mechas, jabón y herramientas"
               width={1920}
               height={1088}
-              className="aspect-[16/10] w-full object-cover"
+              className="h-full min-h-72 w-full object-cover lg:min-h-full"
             />
             <span className="paper-texture pointer-events-none absolute inset-0 opacity-20" />
             <span className="etiqueta absolute bottom-4 left-4 -rotate-[2deg] border border-ink bg-paper px-3 py-1 text-ink">
