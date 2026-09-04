@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { useCart } from "@/lib/cart";
 import { rd } from "@/lib/site";
+import carritoVacio from "@/assets/shop/carrito-vacio.jpg";
 
 export const Route = createFileRoute("/carrito")({
   head: () => ({
