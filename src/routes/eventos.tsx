@@ -41,24 +41,57 @@ const para = [
   "Pop-ups",
 ];
 
-const ejemplos = [
-  { t: "Cerveza + aromas", bg: "bg-tomate text-paper" },
-  { t: "Café + velas", bg: "bg-ink text-paper" },
-  { t: "Glow Lab rooftop", bg: "bg-rosa text-paper" },
-  { t: "Aromas dominicanos", bg: "bg-chartreuse text-ink" },
-  { t: "Experiencias sensoriales", bg: "bg-cobalto text-paper" },
-  { t: "Activaciones infantiles", bg: "bg-chartreuse text-ink" },
-  { t: "Team building creativo", bg: "bg-tomate text-paper" },
+const experiencias = [
+  {
+    t: "Aromas dominicanos",
+    img: fotoAromas,
+    alt: "Grupo oliendo blotters sobre una mesa con cacao, café y botánicos dominicanos",
+    p: "Cacao, café, vetiver, tabaco, cítricos y flores de aquí traducidos en fragancias que la gente reconoce al primer olfato.",
+    bg: "bg-chartreuse text-ink",
+  },
+  {
+    t: "Experiencias sensoriales",
+    img: fotoSensorial,
+    alt: "Invitados con los ojos cerrados oliendo pequeños recipientes en una mesa con velas",
+    p: "Recorridos guiados donde se huele, se toca y se prueba. Pensadas para spas, hoteles, restaurantes y lanzamientos.",
+    bg: "bg-cobalto text-paper",
+  },
+  {
+    t: "Actividades infantiles",
+    img: fotoInfantil,
+    alt: "Niños con delantales mezclando colores y jabones en una mesa larga",
+    p: "Talleres con las manos llenas de color para cumpleaños, escuelas y centros comerciales. Nosotros llevamos el desorden y lo recogemos.",
+    bg: "bg-rosa text-paper",
+  },
+  {
+    t: "Team building creativo",
+    img: fotoTeam,
+    alt: "Equipo de trabajo haciendo velas juntos a ambos lados de una mesa larga",
+    p: "Equipos que se sientan a los dos lados de la mesa larga y salen con algo hecho entre todos. Sin dinámicas forzadas.",
+    bg: "bg-tomate text-paper",
+  },
 ];
 
+const otros = ["Cerveza + aromas", "Café + velas", "Glow Lab rooftop", "Pop-ups de marca"];
+
 const proceso = [
-  "Cuéntanos tu idea",
-  "Conocemos tu marca",
-  "Creamos el concepto",
-  "Diseñamos la experiencia",
-  "Llevamos todos los materiales",
-  "Ustedes la viven",
+  {
+    n: "01",
+    t: "Cuéntanos tu idea",
+    p: "Nos escribes por WhatsApp con lo básico: qué celebran, cuántas personas, fecha aproximada y presupuesto. Si no tienes nada claro todavía, también sirve: te hacemos las preguntas.",
+  },
+  {
+    n: "02",
+    t: "Diseñamos la experiencia",
+    p: "Conocemos tu marca y armamos el concepto: qué se va a crear, qué aromas o materiales usamos, cuánto dura, cómo se ve la mesa y qué se lleva cada invitado. Te lo presentamos con precio cerrado antes de confirmar.",
+  },
+  {
+    n: "03",
+    t: "Nosotros montamos, ustedes crean",
+    p: "Llegamos con todos los materiales, montamos la mesa, facilitamos la actividad de principio a fin y desmontamos. Ustedes solo tienen que aparecer y crear.",
+  },
 ];
+
 
 const privados = [
   "Cumpleaños",
