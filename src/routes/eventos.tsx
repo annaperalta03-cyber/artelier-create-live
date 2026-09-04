@@ -1,5 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import uTalleres from "@/assets/universo-talleres.jpg";
+import uTalleres from "@/assets/taller/mesa-larga.jpg";
+import fotoAromas from "@/assets/taller/aromas-dominicanos.jpg";
+import fotoSensorial from "@/assets/taller/experiencias-sensoriales.jpg";
+import fotoInfantil from "@/assets/taller/actividades-infantiles.jpg";
+import fotoTeam from "@/assets/taller/team-building.jpg";
+
 
 export const Route = createFileRoute("/eventos")({
   head: () => ({
