@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-artelier.jpg";
 import bw1 from "@/assets/bw-1.jpg";
 import bw2 from "@/assets/bw-2.jpg";
 import bw3 from "@/assets/bw-3.jpg";
-import uTalleres from "@/assets/universo-talleres.jpg";
+import uTalleres from "@/assets/taller/mesa-larga.jpg";
 import uKits from "@/assets/universo-kits.jpg";
 import uMateriales from "@/assets/universo-materiales.jpg";
 import uOlfactoryGaleria from "@/assets/universo-olfactory-galeria.png.asset.json";
