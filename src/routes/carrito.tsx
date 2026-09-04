@@ -27,18 +27,44 @@ function CarritoPage() {
       <h1 className="display-lg">Tu carrito.</h1>
 
       {hidratado && items.length === 0 && (
-        <div className="mt-10 border border-ink bg-chartreuse p-8 lg:p-12">
-          <p className="display-md max-w-[22ch]">Aquí no hay nada todavía.</p>
-          <p className="mt-4 max-w-md text-lg">
-            Ningún proyecto empieza vacío. Elige un kit, unas ceras o un aroma raro.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link to="/kits" className="label-xs bg-ink px-6 py-4 text-paper">
-              Ver kits
+        <div className="mt-10 grid border border-ink lg:grid-cols-[1.05fr_1fr]">
+          <div className="relative bg-chartreuse p-8 lg:p-12">
+            <span className="paper-texture pointer-events-none absolute inset-0 opacity-30" />
+            <span className="etiqueta relative -rotate-[2deg] border border-ink bg-paper px-3 py-1 text-ink">
+              Carrito vacío
+            </span>
+            <p className="display-md relative mt-6 max-w-[18ch]">Aquí no hay nada todavía.</p>
+            <p className="relative mt-5 max-w-[40ch] text-lg">
+              Ningún proyecto empieza lleno: empieza con un frasco vacío, una idea y ganas de
+              ensuciarte las manos. Elige un kit, unas ceras o un aroma raro.
+            </p>
+            <Link
+              to="/materiales"
+              className="label-xs relative mt-8 inline-block bg-ink px-7 py-5 text-paper"
+            >
+              Buscar algo para crear
             </Link>
-            <Link to="/materiales" className="label-xs border border-ink px-6 py-4">
-              Ver materiales
-            </Link>
+            <div className="relative mt-4 flex flex-wrap gap-3">
+              <Link to="/kits" className="label-xs border border-ink px-5 py-3">
+                Ver kits
+              </Link>
+              <Link to="/olfactory" className="label-xs border border-ink px-5 py-3">
+                Ver fragancias
+              </Link>
+            </div>
+          </div>
+          <div className="relative border-t border-ink lg:border-l lg:border-t-0">
+            <img
+              src={carritoVacio}
+              alt="Frasco vacío sobre una mesa de estudio con una nota dibujada a mano"
+              loading="lazy"
+              width={1400}
+              height={1000}
+              className="h-full w-full object-cover"
+            />
+            <span className="etiqueta absolute bottom-4 right-4 rotate-[3deg] border border-ink bg-paper px-3 py-1 text-ink">
+              Empieza por aquí
+            </span>
           </div>
         </div>
       )}
