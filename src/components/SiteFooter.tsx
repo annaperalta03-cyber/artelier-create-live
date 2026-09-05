@@ -91,10 +91,10 @@ export function SiteFooter() {
           </div>
           <div className="space-y-3">
             <p className="label-xs mb-3 opacity-50">La comunidad</p>
-            <a href={site.instagram} target="_blank" rel="noreferrer" className="block text-sm hover:text-tomate">
+            <a href={site.instagram} target="_blank" rel="noreferrer" className="block min-h-11 py-2 text-sm hover:text-tomate">
               Instagram @elartelier.rd
             </a>
-            <a href={site.comunidad} target="_blank" rel="noreferrer" className="block text-sm hover:text-tomate">
+            <a href={site.comunidad} target="_blank" rel="noreferrer" className="block min-h-11 py-2 text-sm hover:text-tomate">
               WhatsApp 829-906-3060 — escríbenos y te avisamos primero.
             </a>
             <a

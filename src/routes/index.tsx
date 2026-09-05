@@ -168,7 +168,7 @@ function Home() {
               height={1600}
               className="aspect-4/3 w-full border border-ink object-cover"
             />
-            <span className="etiqueta absolute -left-3 top-6 rotate-[-4deg]">Lab 01 · Cera</span>
+            <span className="etiqueta absolute -left-3 top-6 rotate-[-4deg]">Taller 01 · Cera</span>
           </div>
         </div>
       </section>

@@ -56,9 +56,9 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         >
           Intentar otra vez
         </button>
-        <a href="/" className="label-xs border border-ink px-6 py-4">
+        <Link to="/" className="label-xs border border-ink px-6 py-4">
           Ir al inicio
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -167,6 +167,47 @@
   }
 }
 
+@keyframes olfactory-gallery-drift {
+  from {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.045) translate3d(0, -0.75rem, 0);
+  }
+}
+
+.olfactory-gallery-drift {
+  animation: olfactory-gallery-drift 9s ease-in-out infinite alternate;
+}
+
+.maker-range {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  align-items: center;
+  min-height: 3rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.maker-range output {
+  display: grid;
+  align-self: stretch;
+  place-items: center;
+  border-right: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.maker-range input[type="range"] {
+  width: calc(100% - 1.5rem);
+  margin-inline: 0.75rem;
+  accent-color: var(--cobalto);
+  cursor: pointer;
+}
+
 .marquee-track:hover,
 .marquee-track:focus-within {
   animation-play-state: paused;
@@ -191,8 +232,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-track,
+  .olfactory-gallery-drift {
     animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
