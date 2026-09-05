@@ -30,7 +30,7 @@ const campo = "w-full border border-ink bg-card px-4 py-3 focus:border-cobalto";
 function CheckoutPage() {
   const { items, subtotal, clear } = useCart();
   const navigate = useNavigate();
-  const [entrega, setEntrega] = useState<"Delivery" | "Retiro">("Delivery");
+  const [entrega, setEntrega] = useState<"Envío a domicilio" | "Retiro">("Envío a domicilio");
 
   if (items.length === 0) {
     return (
@@ -90,11 +90,12 @@ function CheckoutPage() {
           <fieldset className="sm:col-span-2">
             <legend className="label-xs">Método de entrega</legend>
             <div className="mt-2 flex gap-2">
-              {(["Delivery", "Retiro"] as const).map((op) => (
+              {(["Envío a domicilio", "Retiro"] as const).map((op) => (
                 <button
                   key={op}
                   type="button"
                   onClick={() => setEntrega(op)}
+                    aria-pressed={entrega === op}
                   className={`label-xs border border-ink px-6 py-3 ${
                     entrega === op ? "bg-ink text-paper" : ""
                   }`}
@@ -105,7 +106,7 @@ function CheckoutPage() {
             </div>
           </fieldset>
 
-          {entrega === "Delivery" && (
+          {entrega === "Envío a domicilio" && (
             <label className="block sm:col-span-2">
               <span className="label-xs">Dirección</span>
               <input name="direccion" required className={`${campo} mt-2`} />

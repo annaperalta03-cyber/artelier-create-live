@@ -82,13 +82,6 @@ export function ProductCard({ producto, tipo }: Props) {
             Favorito del estudio
           </span>
         )}
-        <button
-          type="button"
-          onClick={agregar}
-          className="label-xs absolute inset-x-0 bottom-0 hidden bg-ink py-4 text-paper transition-transform duration-200 sm:block sm:translate-y-full group-hover:sm:translate-y-0 focus-visible:sm:translate-y-0"
-        >
-          Agregar al carrito
-        </button>
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-5">
@@ -115,7 +108,7 @@ export function ProductCard({ producto, tipo }: Props) {
         <button
           type="button"
           onClick={agregar}
-          className="label-xs mt-2 border border-ink bg-ink px-4 py-3 text-paper sm:hidden"
+          className="label-xs mt-2 min-h-12 border border-ink bg-ink px-4 py-3 text-paper transition-colors hover:bg-cobalto"
         >
           Agregar al carrito
         </button>
